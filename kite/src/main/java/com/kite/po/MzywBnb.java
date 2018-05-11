@@ -18,6 +18,7 @@ public class MzywBnb implements Serializable {
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid")
+	@Column(length=32)
 	private String id;
 	
 	@Column(columnDefinition = "VARCHAR(20) COMMENT '信息标题'")

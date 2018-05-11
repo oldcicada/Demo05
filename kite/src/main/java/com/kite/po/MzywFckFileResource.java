@@ -18,6 +18,7 @@ public class MzywFckFileResource implements Serializable {
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid")
+	@Column(length=32)
 	private String id;
 
 	@Column(nullable=false,columnDefinition = "VARCHAR(255) COMMENT '文件名'")

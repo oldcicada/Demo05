@@ -18,6 +18,7 @@ public class MzywAzcBdxx implements Serializable {
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid")
+	@Column(length=32)
 	private String id;
 
 	@Column(columnDefinition = "VARCHAR(18) COMMENT '士兵身份证号码'")

@@ -19,6 +19,7 @@ public class MzywDcbPxbzjf implements Serializable {
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid")
+	@Column(length=32)
 	private String id;
 
 	@Column(columnDefinition = "VARCHAR(100) COMMENT '报纸、刊物、媒体、网站名称'")

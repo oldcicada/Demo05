@@ -20,5 +20,4 @@ public class HibernateTest {
 		session.save(m);
 		transaction.commit();
 	}
-
 }
