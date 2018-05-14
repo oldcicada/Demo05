@@ -1,55 +1,49 @@
-<?xml version="1.0" encoding="Utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>
 	<session-factory>
-		<!-- 配置数据库信息，使用hibernate自带连接池，不稳定可以使用c3p0 -->
-		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/civil?characterEncoding=utf-8</property>
-		<property name="connection.username">root</property>
-		<property name="connection.password">123123</property>
-		<property name="connection.pool_size">10</property>
 		
 		<!-- 配置hibernate信息 -->
-		<!-- 指定数据库方言，如mysql、Oracle等。不同数据库的数据类型、语法稍有差别，hibernate将其转换成能理解的语句。 mysql分页：limit，Oracle分页：rownum -->
+		<!-- 指定数据库方言，如mysql、Oracle等。不同数据库的数据类型、语法稍有差别，hibernate将其转换成能理解的语句。
+		mysql分页：limit，Oracle分页：rownum -->
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 		<!-- 将session绑定到当前线程，确保session是单线程的 -->
 		<property name="current_session_context_class">thread</property>
 		<!-- 不使用二级缓存 -->
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
-		<!-- 是否显示 SQL -->
+		<!-- 是否显示 SQL-->
 		<property name="show_sql">true</property>
 		<!-- 格式化sql -->
 		<property name="format_sql">true</property>
 		<!-- 自动生成数据表的策略，update第一次创建表，以后更新 -->
 		<property name="hbm2ddl.auto">update</property>
-
+		
 		<!-- 加载映射文件 -->
-		<mapping class="com.kite.po.MzywFjxx" />
-		<mapping class="com.kite.po.MzywZjcl" />
-		<mapping class="com.kite.po.MzywFckFileResource" />
-		<mapping class="com.kite.po.MzywSczy" />
-		<mapping class="com.kite.po.MzywSczyPz" />
-
-		<mapping class="com.kite.po.MzywZd" />
-		<mapping class="com.kite.po.MzywZjcl" />
-		<mapping class="com.kite.po.MzywTzgg" />
-		<mapping class="com.kite.po.MzywAzcXxhzypz" />
-		<mapping class="com.kite.po.MzywJssz" />
-
-		<mapping class="com.kite.po.MzywFxb" />
-		<mapping class="com.kite.po.MzywShswcYtwy" />
-		<mapping class="com.kite.po.MzywShswcSzxx" />
-		<mapping class="com.kite.po.MzywShswcGhjzxm" />
-		<mapping class="com.kite.po.MzywShswcMzxx" />
-
-		<mapping class="com.kite.po.MzywAzcBdxx" />
-		<mapping class="com.kite.po.MzywDcbPxbzjf" />
-		<mapping class="com.kite.po.MzywBnb" />
-		<mapping class="com.kite.po.MzywFccYljgxx" />
-
-		<mapping class="com.kite.po.MzywFccSqylfwss" />
+		<mapping class="com.po.User" />
+		<mapping class="com.po.MzywAzcBdxx" />
+		<mapping class="com.po.MzywAzcXxhzypz" />
+		<mapping class="com.po.MzywBnb" />
+		<mapping class="com.po.MzywDcbCxbdjf" />
+		<mapping class="com.po.MzywDcbPxbzjf" />
+		<mapping class="com.po.MzywDcbZhpfwh" />
+		<mapping class="com.po.MzywFccSqylfwss" />
+		<mapping class="com.po.MzywFccYljgxx" />
+		<mapping class="com.po.MzywFckFileResource" />
+		<mapping class="com.po.MzywFjxx" />
+		<mapping class="com.po.MzywFxb" />
+		<mapping class="com.po.MzywJssz" />
+		<mapping class="com.po.MzywSczy" />
+		<mapping class="com.po.MzywSczyPz" />
+		<mapping class="com.po.MzywShswcGhjzxm" />
+		<mapping class="com.po.MzywShswcMzxx" />
+		<mapping class="com.po.MzywShswcSzxx" />
+		<mapping class="com.po.MzywShswcYtwy" />
+		<mapping class="com.po.MzywTzgg" />
+		<mapping class="com.po.MzywZd" />
+		<mapping class="com.po.MzywZjcl" /> 
 
 	</session-factory>
 

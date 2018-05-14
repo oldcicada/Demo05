@@ -1,0 +1,212 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html style="background-color: #000">
+<head>
+<%@include file="../commont.jsp"%>
+</head>
+<body class="skin-blue"  style="height: 100% !important;">
+	<div class="wrapper" >
+			<div class="content">
+				<div class="yjgl">
+					<div class="ssjc_right_up">
+						<div class="nei">
+							<div class="ssjc_ru_title">
+								<span class="left_ten"> 查询条件 </span>
+								<a href="" target="frame"><input type="submit" value="信息查询" ></a>
+								<a href="" target="frame"><input type="submit" value="信息报送"></a>
+								<div class="clear"></div>
+							</div>
+							<div class="sbaz_table">
+								<p>
+								   <span class="tiaoshijian"> 报送时间：
+                                    <input type="date" id="date_time">
+                                    <i class="glyphicon glyphicon-calendar fa fa-calendar" style="top:14px;"></i>
+                                    </span> 
+									<span class="tiaoshijian"> 至：
+                                    <input type="date" id="date_time">
+                                    <i class="glyphicon glyphicon-calendar fa fa-calendar" style="top:14px; left: 40px;"></i>
+                                    </span> 
+                   
+									<span>逝者姓名：<input type="text" style="width: 120px;"></span>
+									<span>报送状态：
+			          					<select  class="biaoti_select">
+										  <option value="地上式墓穴">地上式墓穴</option>
+										  <option value="生态葬式">生态葬式</option>
+										   <option value="节地葬式">节地葬式</option>
+										</select>
+          				            </span>
+          				            <span>藏式名称：
+			          					<select  class="biaoti_select">
+										  <option value="已报送">已报送</option>
+										  <option value="未报送">未报送</option>
+										</select>
+          				            </span>
+									<span>身份证号码：<input type="text" pattern="^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$"></span> 
+									<input type="submit" value="  查询  " class="in_sub"> 
+									<input type="reset" value="  重置  " class="in_sub">
+								</p>
+							</div>
+						</div>
+						<div class="ssjc_right_bottom">
+							<div class="nei">
+								<p>查询结果</p>
+								<div class="ssjc_rub_table">
+									<table class="tj_table" border="0">
+										<thead>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>编号</td>
+												<td>逝者姓名</td>
+												<td>身份证号</td>
+												<td>报送状态</td>
+												<td>报送时间</td>
+												<td>藏式名称</td>
+												<td>操作</td>
+											</tr>
+											
+										</thead>
+										<tbody>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>166</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+												<td>项目</td>
+											
+												<td>项目</td>
+												<td><a href="shswc/xxbsXqYtwyBy" target="frame">查看</a></td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>174</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+												<td>项目</td>
+											
+												<td>项目</td>
+												<td><a>删除</a></td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>175</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+												<td>项目</td>
+											
+												<td>项目</td>
+												<td><a href="shswc/xxbsBsYtwyBy" target="frame">报送</a></td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>174</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+												<td>项目</td>
+											
+												<td>项目</td>
+												<td>2015-03-01</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>174</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+												<td>项目</td>
+												
+												<td>项目</td>
+												<td>2015-03-01</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>175</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+												<td>项目</td>
+											
+												<td>项目</td>
+												<td>2015-03-02</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>175</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+												<td>项目</td>
+											
+												<td>项目</td>
+												<td>2015-03-02</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>175</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+												<td>项目</td>
+											
+												<td>项目</td>
+												<td>2015-03-02</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>175</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+											
+												<td>项目</td>
+												<td>项目</td>
+												<td>2015-03-02</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>175</td>
+												<td>生产</td>
+												<td>电表</td>
+												<td>电</td>
+											
+												<td>项目</td>
+												<td>项目</td>
+												<td>2015-03-02</td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" class="table_check"></td>
+												<td>177</td>
+												<td>生产</td>
+												<td>采集器</td>
+												<td>水</td>
+											
+												<td>项目</td>
+												<td>项目</td>
+												<td>2015-03-02</td>
+											</tr>
+											
+										</tbody>
+
+									</table>
+									<div class="t_fanye">
+										<span class="upten"></span> <span class="up"></span> <span
+											class="split"></span> <span class="page_info_one">第 1
+											/ 1 页</span> <span class="split"></span> <span class="dowm"></span>
+										<span class="downten"></span> <span class="page_info_two">页记录数
+											15</span> <span class="page_info_three">当前1-1条记录，共1条记录</span>
+										<div class="clear"></div>
+									</div>
+
+								</div>
+								
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
