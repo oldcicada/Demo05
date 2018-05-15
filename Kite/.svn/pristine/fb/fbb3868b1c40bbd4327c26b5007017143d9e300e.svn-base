@@ -1,0 +1,18 @@
+log4j.rootLogger=WARN,CONSOLE,FILE
+
+###################
+# Console Appender
+###################
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.Target=System.out
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+#-4\u663E\u793A\u5360\u4F4D\u7B26\uFF0C%x\u6309\u987A\u5E8F\u8F93\u51FA\u5F02\u5E38
+log4j.appender.CONSOLE.layout.ConversionPattern=[framework] [%t] %-5p %x - %m%n
+
+#####################
+# File Appender
+#####################
+log4j.appender.FILE=org.apache.log4j.FileAppender
+log4j.appender.FILE.File=d:/file.log
+log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.FILE.layout.ConversionPattern=[framework] [%t] %-5p %x - %m%n

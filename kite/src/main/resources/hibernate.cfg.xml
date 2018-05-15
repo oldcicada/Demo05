@@ -11,7 +11,7 @@
 		mysql分页：limit，Oracle分页：rownum -->
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 		<!-- 将session绑定到当前线程，确保session是单线程的 -->
-		<property name="current_session_context_class">thread</property>
+		<property name="current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</property>
 		<!-- 不使用二级缓存 -->
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 		<!-- 是否显示 SQL-->
