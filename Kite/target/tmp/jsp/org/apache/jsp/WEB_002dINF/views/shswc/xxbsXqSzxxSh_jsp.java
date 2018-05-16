@@ -77,6 +77,7 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("<link rel=\"stylesheet\" href=\"images/vince/css/vince.css\">\r\n");
       out.write("<link rel=\"stylesheet\" href=\"images/vince/biao/css/font-awesome.min.css\">");
       out.write("\r\n");
+      out.write(" \r\n");
       out.write("<style type=\"text/css\">\r\n");
       out.write(".nei span {\r\n");
       out.write("\tcolor: #fff;\r\n");

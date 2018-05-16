@@ -7,9 +7,12 @@ com\po\MzywFccSqylfwss.class
 com\controller\TzggController.class
 com\po\MzywFjxx.class
 com\controller\JsFxbyController.class
+com\serviceImpl\MzywBnbServiceImpl.class
 com\serviceImpl\UserServiceImpl.class
 com\controller\CommonController.class
+com\dao\MzywBnbDao.class
 com\service\UserService.class
+com\dao\MzywFccYljgxxDao.class
 com\utils\PageDto.class
 com\controller\BnbController.class
 com\po\MzywFccYljgxx.class
@@ -25,6 +28,7 @@ com\controller\DcbController.class
 com\controller\FccController.class
 com\po\MzywAzcXxhzypz.class
 com\po\MzywBnb.class
+com\service\MzywBnbService.class
 com\po\MzywShswcMzxx.class
 com\controller\UserLoginController.class
 com\po\MzywDcbCxbdjf.class
@@ -34,12 +38,14 @@ com\po\MzywTzgg.class
 com\serviceImpl\MzywShswcSzxxServiceImpl.class
 com\po\MzywFckFileResource.class
 com\po\MzywSczy.class
+com\serviceImpl\MzywFccYljgxxServiceImp.class
 com\interceptor\LoginInterceptor.class
 com\po\MzywFxb.class
 com\controller\ShswcController.class
 com\po\MzywDcbZhpfwh.class
 com\dao\UserDao.class
 com\po\MzywZjcl.class
+com\service\MzywFccYljgxxService.class
 com\utils\Md5.class
 com\dao\MzywShswcSzxxDao.class
 com\po\MzywJssz.class

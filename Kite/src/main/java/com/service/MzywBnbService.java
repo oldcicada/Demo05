@@ -1,0 +1,27 @@
+package com.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.po.MzywBnb;
+
+public interface MzywBnbService {
+
+	public List<MzywBnb> queryList(Map<Object, Object> map);
+
+	public int queryListCount(Map<Object, Object> map);
+
+	public MzywBnb queryInfoById(String id);
+
+	//
+	public void saveXxbsBsJg(MzywBnb mzywBnb);
+
+	public void updateStatusById(String id, String zcbs);
+
+	public void updateXxbsBsJg(MzywBnb mzywBnb);
+
+	public List<MzywBnb> queryListByBn(Map<Object, Object> map);
+
+	public int queryListCountByBn(Map<Object, Object> map);
+
+}

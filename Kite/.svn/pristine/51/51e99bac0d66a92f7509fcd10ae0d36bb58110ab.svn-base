@@ -1,0 +1,109 @@
+package com.controller;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.po.MzywBnb;
+import com.po.User;
+import com.service.MzywBnbService;
+import com.utils.PageDto;
+
+@Controller
+public class BnbController {
+
+	@Autowired
+	private MzywBnbService mzywBnbService;
+
+	// 不能办信息报送查询机关处室get请求
+	@RequestMapping(value = "/user/bnbXxCxJg", method = RequestMethod.GET)
+	private String bnbXxCxJgGet() {
+
+		return "bnb/bnbXxCxJg";
+	}
+
+	// 不能办信息报送查询机关处室post请求
+	@ResponseBody
+	@RequestMapping(value = "/user/bnbXxCxJg", method = RequestMethod.POST)
+	private PageDto<MzywBnb> bnbXxCxJgPOST(int pageIndex, int pageSize, String szxm, String startDate, String endDate,
+			String zcbs) {
+
+		if (startDate.length() == 0) {
+			startDate = "2001-01-01";
+		}
+		if (endDate.length() == 0) {
+			endDate = "2022-01-01";
+		}
+		Map<Object, Object> map = new HashMap<>();
+		map.put("start", (pageIndex - 1) * pageSize);
+		map.put("end", pageSize);
+		map.put("startDate", startDate);
+		map.put("endDate", endDate);
+		map.put("zcbs", "%" + zcbs + "%");
+		List<MzywBnb> list = mzywBnbService.queryList(map);
+		PageDto<MzywBnb> dto = new PageDto<>();
+		dto.setList(list);
+		dto.setPageIndex(pageIndex);
+		dto.setPageSize(pageSize);
+		int count = mzywBnbService.queryListCount(map);
+		dto.setCount(count);
+		dto.setPageTotal(count, pageSize);
+		return dto;
+	}
+
+	// 信息报送机关处室get请求
+	@RequestMapping(value = "/user/xxbsBsJg", method = RequestMethod.GET)
+	private String xxbsBsJgGet(Model model, String id) {
+
+		MzywBnb bnbJg = mzywBnbService.queryInfoById(id);
+		model.addAttribute("bnbJg", bnbJg);
+
+		return "bnb/xxbsBsJg";
+	}
+
+	// 信息报送机关处室post请求
+	@RequestMapping(value = "/user/xxbsBsJg", method = RequestMethod.POST)
+	private void xxbsBsJg(String zhxgsj, String bnbjbqk, String bnbyy, String kcsyj, String ldyj, String bjsj,
+			String bjqk, String bz, String zcbs, HttpSession session) {
+
+		User user = (User) session.getAttribute("user");
+		String zhxgyh = user.getName();
+		String sbdw = user.getDepartment();
+		String sbdwmc = "HeifeiYaohai";
+		MzywBnb mzywBnb = new MzywBnb(bnbjbqk, bnbyy, kcsyj, ldyj, bjsj, bjqk, bz, sbdw, sbdwmc, zcbs, zhxgyh, zhxgsj);
+		mzywBnbService.saveXxbsBsJg(mzywBnb);
+
+	}
+
+	@RequestMapping(value = "/user/xxbsCxBn", method = RequestMethod.GET)
+	private String xxbsCxBnGet() {
+
+		return "bnb/xxbsCxBn";
+	}
+
+	@RequestMapping(value = "/user/xxbsXqBn", method = RequestMethod.GET)
+	private String xxbsXqBnGet() {
+
+		return "bnb/xxbsXqBn";
+	}
+
+	// 不能办详情机关get
+	@RequestMapping(value = "/user/xxbsXqJg", method = RequestMethod.GET)
+	private String xxbsXqJgGet(Model model, String id) {
+
+		MzywBnb bnbJg = mzywBnbService.queryInfoById(id);
+		model.addAttribute("bnbJg", bnbJg);
+
+		return "bnb/xxbsXqJg";
+	}
+
+}
