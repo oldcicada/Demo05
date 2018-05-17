@@ -19,7 +19,7 @@ public class MzywShswcSzxx implements Serializable {
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid")
 	private String id;
-	
+
 	@Column(columnDefinition = "VARCHAR(14) COMMENT '创建时间'")
 	private String cjsj;
 
@@ -34,7 +34,7 @@ public class MzywShswcSzxx implements Serializable {
 
 	@Column(columnDefinition = "VARCHAR(50) COMMENT '经办人姓名'")
 	private String jbrxm;
-	
+
 	@Column(columnDefinition = "VARCHAR(100) COMMENT '逝者户籍地'")
 	private String szhjd;
 
@@ -46,13 +46,13 @@ public class MzywShswcSzxx implements Serializable {
 
 	@Column(columnDefinition = "VARCHAR(50) COMMENT '有效标识'")
 	private String yxbs;
-	
+
 	@Column(columnDefinition = "VARCHAR(50) COMMENT '暂存报送'")
 	private String zcbs;
-	
+
 	@Column(columnDefinition = "VARCHAR(100) COMMENT '最后修改用户'")
 	private String zhxgyh;
-	
+
 	@Column(columnDefinition = "VARCHAR(14) COMMENT '最后修改时间'")
 	private String zhxgsj;
 
@@ -64,7 +64,7 @@ public class MzywShswcSzxx implements Serializable {
 
 	@Column(columnDefinition = "VARCHAR(10) COMMENT '逝者火化日期'")
 	private String szhhrq;
-	
+
 	@Column(columnDefinition = "VARCHAR(100) COMMENT '逝者户籍地名称'")
 	private String szhjdmc;
 
@@ -95,7 +95,6 @@ public class MzywShswcSzxx implements Serializable {
 	@Column(columnDefinition = "VARCHAR(50) COMMENT '殡仪馆名称'")
 	private String bygmc;
 
-
 	public MzywShswcSzxx() {
 
 	}
@@ -106,6 +105,54 @@ public class MzywShswcSzxx implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getCjsj() {
+		return cjsj;
+	}
+
+	public void setCjsj(String cjsj) {
+		this.cjsj = cjsj;
+	}
+
+	public String getCjyh() {
+		return cjyh;
+	}
+
+	public void setCjyh(String cjyh) {
+		this.cjyh = cjyh;
+	}
+
+	public String getJbrlxdh() {
+		return jbrlxdh;
+	}
+
+	public void setJbrlxdh(String jbrlxdh) {
+		this.jbrlxdh = jbrlxdh;
+	}
+
+	public String getJbrsfzhm() {
+		return jbrsfzhm;
+	}
+
+	public void setJbrsfzhm(String jbrsfzhm) {
+		this.jbrsfzhm = jbrsfzhm;
+	}
+
+	public String getJbrxm() {
+		return jbrxm;
+	}
+
+	public void setJbrxm(String jbrxm) {
+		this.jbrxm = jbrxm;
+	}
+
+	public String getSzhjd() {
+		return szhjd;
+	}
+
+	public void setSzhjd(String szhjd) {
+		this.szhjd = szhjd;
 	}
 
 	public String getSzsfzhm() {
@@ -124,20 +171,36 @@ public class MzywShswcSzxx implements Serializable {
 		this.szxm = szxm;
 	}
 
-	public String getSzhjd() {
-		return szhjd;
+	public String getYxbs() {
+		return yxbs;
 	}
 
-	public void setSzhjd(String szhjd) {
-		this.szhjd = szhjd;
+	public void setYxbs(String yxbs) {
+		this.yxbs = yxbs;
 	}
 
-	public String getSzhjdmc() {
-		return szhjdmc;
+	public String getZcbs() {
+		return zcbs;
 	}
 
-	public void setSzhjdmc(String szhjdmc) {
-		this.szhjdmc = szhjdmc;
+	public void setZcbs(String zcbs) {
+		this.zcbs = zcbs;
+	}
+
+	public String getZhxgyh() {
+		return zhxgyh;
+	}
+
+	public void setZhxgyh(String zhxgyh) {
+		this.zhxgyh = zhxgyh;
+	}
+
+	public String getZhxgsj() {
+		return zhxgsj;
+	}
+
+	public void setZhxgsj(String zhxgsj) {
+		this.zhxgsj = zhxgsj;
 	}
 
 	public String getSzswyy() {
@@ -162,6 +225,14 @@ public class MzywShswcSzxx implements Serializable {
 
 	public void setSzhhrq(String szhhrq) {
 		this.szhhrq = szhhrq;
+	}
+
+	public String getSzhjdmc() {
+		return szhjdmc;
+	}
+
+	public void setSzhjdmc(String szhjdmc) {
+		this.szhjdmc = szhjdmc;
 	}
 
 	public String getZdjzdx() {
@@ -220,56 +291,12 @@ public class MzywShswcSzxx implements Serializable {
 		this.ptghh = ptghh;
 	}
 
-	public String getJbrsfzhm() {
-		return jbrsfzhm;
+	public Integer getPtgbtfy() {
+		return ptgbtfy;
 	}
 
-	public void setJbrsfzhm(String jbrsfzhm) {
-		this.jbrsfzhm = jbrsfzhm;
-	}
-
-	public String getJbrxm() {
-		return jbrxm;
-	}
-
-	public void setJbrxm(String jbrxm) {
-		this.jbrxm = jbrxm;
-	}
-
-	public String getJbrlxdh() {
-		return jbrlxdh;
-	}
-
-	public void setJbrlxdh(String jbrlxdh) {
-		this.jbrlxdh = jbrlxdh;
-	}
-
-	public String getZcbs() {
-		return zcbs;
-	}
-
-	public void setZcbs(String zcbs) {
-		this.zcbs = zcbs;
-	}
-
-	public String getYxbs() {
-		return yxbs;
-	}
-
-	public void setYxbs(String yxbs) {
-		this.yxbs = yxbs;
-	}
-
-	public String getCjyh() {
-		return cjyh;
-	}
-
-	public void setCjyh(String cjyh) {
-		this.cjyh = cjyh;
-	}
-
-	public String getCjsj() {
-		return cjsj;
+	public void setPtgbtfy(Integer ptgbtfy) {
+		this.ptgbtfy = ptgbtfy;
 	}
 
 	public String getBygmc() {
@@ -278,34 +305,6 @@ public class MzywShswcSzxx implements Serializable {
 
 	public void setBygmc(String bygmc) {
 		this.bygmc = bygmc;
-	}
-
-	public void setCjsj(String cjsj) {
-		this.cjsj = cjsj;
-	}
-
-	public String getZhxgyh() {
-		return zhxgyh;
-	}
-
-	public void setZhxgyh(String zhxgyh) {
-		this.zhxgyh = zhxgyh;
-	}
-
-	public String getZhxgsj() {
-		return zhxgsj;
-	}
-
-	public void setZhxgsj(String zhxgsj) {
-		this.zhxgsj = zhxgsj;
-	}
-
-	public Integer getPtgbtfy() {
-		return ptgbtfy;
-	}
-
-	public void setPtgbtfy(Integer ptgbtfy) {
-		this.ptgbtfy = ptgbtfy;
 	}
 
 }

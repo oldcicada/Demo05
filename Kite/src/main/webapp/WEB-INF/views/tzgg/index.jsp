@@ -110,9 +110,7 @@ if (i<10)
 							<li><a href="user/xxbsCxFxby" target="frame"><i class="fa fa-bookmark"></i>
 									信息报送 (法宣办)</a></li>
 							<li><a href="user/xxbsCxSzxxSh" target="frame"><i class="fa fa-bookmark"></i>
-									逝者信息查询(社会事务处)</a></li>
-							<li><a href="user/xxbsCxSzxxBy" target="frame"><i class="fa fa-bookmark"></i>
-									逝者信息查询(殡仪馆用户)</a></li>
+									逝者信息报送(社会事务处)</a></li>
 							<li><a href="user/xxbsCxGhjzSh" target="frame"><i class="fa fa-bookmark"></i>
 									骨灰江葬报送 (社会事务处)</a></li>
 							<li><a href="user/xxbsCxYtwySh" target="frame"><i class="fa fa-bookmark"></i>
