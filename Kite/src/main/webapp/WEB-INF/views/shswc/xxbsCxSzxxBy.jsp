@@ -13,8 +13,8 @@
 					<div class="nei">
 						<div class="ssjc_ru_title">
 							<span class="left_ten"> 查询条件 </span> 
-							<a href="user/xxbsBsSzxxBy" target="frame"><input type="submit" value="信息报送" ></a>
-							<a href="user/xxbsCxSzxxBy" target="frame"><input type="submit" value="信息查询"></a>
+							<a href="user/xxbsAdSzxxBy"><input type="submit" value="新增信息报送" ></a>
+							<a href="user/xxbsCxSzxxBy"><input type="submit" value="信息查询"></a>
 							<div class="clear"></div>
 						</div>
 						<div class="sbaz_table">

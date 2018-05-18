@@ -57,12 +57,19 @@
 									</thead>
 									<tbody id="content"></tbody>
 								</table>
-								<div class="t_fanye" id="pageControl">
+								<div class="t_fanye sbaz_table" id="pageControl">
 									<span class="upten"></span> <span class="up"></span> <span
 										class="split"></span> <span class="page_info_one"></span> <span
 										class="split"></span> <span class="dowm"></span> <span
 										class="downten"></span> <span class="page_info_two"></span> <span
 										class="page_info_three"></span>
+										<p><span> 每页显示
+										<select class="biaoti_select" id="pageSize">
+										<option>5</option>
+										<option>8</option>
+										<option>10</option>
+										</select>条,跳转至 <input type="text" style="width:40px;height:20px;" name="pageTo" id="pageTo"/> 页</span>
+										</p>
 									<div class="clear"></div>
 								</div>
 							</div>

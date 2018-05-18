@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,6 +83,7 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	}
 
 	// 逝者信息查询-社会事务处-POST
+	//查询字典，设置殡仪馆名称,救助对象，渲染列表
 	@RequestMapping(value = "/user/xxbsCxSzxxSh", method = RequestMethod.POST)
 	@ResponseBody
 	public PageDto<MzywShswcSzxx> xxbsCxSzxxShPost(int pageIndex, int pageSize, String szxm, String startDate,
@@ -95,14 +95,22 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 			String mc = DictUtil.getDictMc("funeral", mzy.getBygmc());
 			mzy.setBygmc(mc);
 		}
+		for (MzywShswcSzxx mzy : list) {
+			String mc = DictUtil.getDictMc("succour", mzy.getZdjzdx());
+			mzy.setZdjzdx(mc);
+		}
 		return dto;
 	}
 
-	// 逝者信息详情-社会事务处
+	// 逝者信息详情-社会事务处-GET
+	//查询字典设置死亡原因，殡仪馆名称，重点救助对象，是否选择江葬，显示对象信息
 	@RequestMapping(value = "/user/xxbsXqSzxxSh", method = RequestMethod.GET)
 	public String xxbsXqSzxxShGet(String id, Model model) {
-		MzywShswcSzxx mzywShswcSzxx = mzywShswcSzxxService.queryById(id);
-		model.addAttribute("szxx", mzywShswcSzxx);
+		MzywShswcSzxx mzy = mzywShswcSzxxService.queryById(id);
+		mzy.setSzswyy(DictUtil.getDictMc("cause", mzy.getSzswyy()));
+		mzy.setZdjzdx(DictUtil.getDictMc("succour", mzy.getZdjzdx()));
+		mzy.setSfxzjz(DictUtil.getDictMc("choose", mzy.getSfxzjz()));
+		model.addAttribute("szxx", mzy);
 		return "shswc/xxbsXqSzxxSh";
 	}
 
@@ -113,6 +121,7 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	}
 
 	// 逝者信息查询-殡仪馆用户-POST
+	//查询字典，设置报送状态，重点救助对象，渲染列表
 	@RequestMapping(value = "/user/xxbsCxSzxxBy", method = RequestMethod.POST)
 	@ResponseBody
 	public PageDto<MzywShswcSzxx> xxbsCxSzxxByPOST(int pageIndex, int pageSize, String szxm, String startDate,
@@ -130,10 +139,14 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	}
 
 	// 逝者信息详情-殡仪馆用户-GET
+	//查询字典设置死亡原因，殡仪馆名称，重点救助对象，是否选择江葬，显示对象信息
 	@RequestMapping(value = "/user/xxbsXqSzxxBy", method = RequestMethod.GET)
 	public String xxbsXqSzxxByGET(Model model, String id) {
-		MzywShswcSzxx mzywShswcSzxx = mzywShswcSzxxService.queryById(id);
-		model.addAttribute("szxx", mzywShswcSzxx);
+		MzywShswcSzxx mzy = mzywShswcSzxxService.queryById(id);
+		mzy.setSzswyy(DictUtil.getDictMc("cause", mzy.getSzswyy()));
+		mzy.setZdjzdx(DictUtil.getDictMc("succour", mzy.getZdjzdx()));
+		mzy.setSfxzjz(DictUtil.getDictMc("choose", mzy.getSfxzjz()));
+		model.addAttribute("szxx", mzy);
 		return "shswc/xxbsXqSzxxBy";
 	}
 
@@ -152,7 +165,8 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		return "shswc/xxbsBsSzxxBy";
 	}
 
-	// 逝者信息报送-殡仪馆用户-POST//设置创建时间和创建用户,设置暂存报送为已报送
+	// 逝者信息报送-殡仪馆用户-POST
+	//设置创建时间和创建用户,设置暂存报送为已报送
 	@RequestMapping(value = "/user/xxbsBsSzxxBy", method = RequestMethod.POST)
 	public String xxbsBsSzxxByPOST(MzywShswcSzxx mzy,HttpSession session) {
 		User user = (User)session.getAttribute("user");
@@ -162,17 +176,39 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		return "shswc/xxbsCxSzxxBy";
 	}
 
-	// 逝者信息暂存-殡仪馆用户-POST//修改最后修改时间和最后修改用户,设置暂存报送为未报送
+	// 逝者信息暂存-殡仪馆用户-POST
+	//设置最后修改时间和最后修改用户,设置暂存报送为未报送
 	@RequestMapping(value = "/user/xxbsZcSzxxBy", method = RequestMethod.POST)
 	public String xxbsZcSzxxByPOST(MzywShswcSzxx mzy,HttpSession session) {
-		User user = (User)session.getAttribute("user");
+		MzywShswcSzxx oldMzy = (MzywShswcSzxx)mzywShswcSzxxService.queryById(mzy.getId());
+		mzy.setCjsj(oldMzy.getCjsj());
+		mzy.setCjyh(oldMzy.getCjyh());
+		mzy.setYxbs(oldMzy.getYxbs());
+		mzy.setBygmc(oldMzy.getBygmc());
+		
+ 		User user = (User)session.getAttribute("user");
 		mzy.setZhxgyh(user.getName());
 		mzy.setZhxgsj(sdf.format(new Date()));
 		mzy.setZcbs("1");
 		mzywShswcSzxxService.update(mzy);
 		return "shswc/xxbsCxSzxxBy";
 	}
-
+	
+	// 新增逝者信息-殡仪馆用户-GET
+	// 新增跳转到查询页面
+	@RequestMapping(value = "/user/xxbsAdSzxxBy", method = RequestMethod.GET)
+	public String xxbsAdSzxxByGET() {
+		return "shswc/xxbsAdSzxxBy";
+	}	
+	
+	// 新增逝者信息-殡仪馆用户-POST
+	// 新增跳转到查询页面
+	@RequestMapping(value = "/user/xxbsAdSzxxBy", method = RequestMethod.POST)
+	public String xxbsAdSzxxByPOST(MzywShswcSzxx mzy) {
+		mzywShswcSzxxService.add(mzy);
+		return "shswc/xxbsCxSzxxBy";
+	}	
+	
 	// 社会事务处-end
 
 	@RequestMapping(value = "/user/xxbsCxYtwyBy", method = RequestMethod.GET)

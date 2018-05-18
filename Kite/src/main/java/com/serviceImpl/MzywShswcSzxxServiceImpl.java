@@ -62,6 +62,7 @@ public class MzywShswcSzxxServiceImpl implements MzywShswcSzxxService {
 	}
 	
 	//更新对象信息
+	//设置创建时间,创建用户,有效报送,殡仪馆名称
 	public void update(MzywShswcSzxx mzy) {
 		mzywShswcSzxxDao.update(mzy);
 	}

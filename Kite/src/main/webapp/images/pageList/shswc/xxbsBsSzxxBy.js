@@ -1,4 +1,5 @@
 $(function(){
+	//渲染下拉列表，是否选择江葬，重点救助对象，死亡原因
 	init();
 });
 function init(){

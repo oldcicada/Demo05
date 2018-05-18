@@ -1,5 +1,4 @@
 var pageIndex=1;
-var pageSize=8;
 var pageTotal;
 
 $(function(){
@@ -64,6 +63,11 @@ function otherOperate(){
 }
 
 function queryPage(){
+	var pageSize=$('#pageSize').val();
+	var pageTo=$('#pageTo').val();
+	if(pageTo!=""){
+		pageIndex=pageSize*pageTo;
+	}
 	var startDate=$("input[name=startDate]").val();
 	var endDate=$("input[name=endDate]").val();
 	var szxm=$("input[name=szxm]").val();

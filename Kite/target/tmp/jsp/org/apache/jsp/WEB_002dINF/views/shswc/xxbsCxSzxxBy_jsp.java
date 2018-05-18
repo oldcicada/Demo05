@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class xxbsCxSzxxSh_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class xxbsCxSzxxBy_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -86,6 +86,8 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t<div class=\"nei\">\r\n");
       out.write("\t\t\t\t\t\t<div class=\"ssjc_ru_title\">\r\n");
       out.write("\t\t\t\t\t\t\t<span class=\"left_ten\"> 查询条件 </span> \r\n");
+      out.write("\t\t\t\t\t\t\t<a href=\"user/xxbsAdSzxxBy\"><input type=\"submit\" value=\"新增信息报送\" ></a>\r\n");
+      out.write("\t\t\t\t\t\t\t<a href=\"user/xxbsCxSzxxBy\"><input type=\"submit\" value=\"信息查询\"></a>\r\n");
       out.write("\t\t\t\t\t\t\t<div class=\"clear\"></div>\r\n");
       out.write("\t\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t\t\t<div class=\"sbaz_table\">\r\n");
@@ -119,9 +121,9 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t\t\t<tr>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td><input type=\"checkbox\" class=\"table_check\"></td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td>编号</td>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t<td>殡仪馆名称</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td>逝者姓名</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td>身份证号码</td>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<td>报送状态</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td>报送时间</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td>救助对象</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td>户籍地</td>\r\n");
@@ -130,19 +132,12 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t\t</thead>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<tbody id=\"content\"></tbody>\r\n");
       out.write("\t\t\t\t\t\t\t\t</table>\r\n");
-      out.write("\t\t\t\t\t\t\t\t<div class=\"t_fanye sbaz_table\" id=\"pageControl\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<div class=\"t_fanye\" id=\"pageControl\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<span class=\"upten\"></span> <span class=\"up\"></span> <span\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\tclass=\"split\"></span> <span class=\"page_info_one\"></span> <span\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\tclass=\"split\"></span> <span class=\"dowm\"></span> <span\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\tclass=\"downten\"></span> <span class=\"page_info_two\"></span> <span\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\tclass=\"page_info_three\"></span>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<p><span> 每页显示\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<select class=\"biaoti_select\" id=\"pageSize\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<option>5</option>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<option>8</option>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<option>10</option>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t</select>条,跳转至 <input type=\"text\" style=\"width:40px;height:20px;\" name=\"pageTo\" id=\"pageTo\"/> 页</span>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<div class=\"clear\"></div>\r\n");
       out.write("\t\t\t\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t\t\t\t</div>\r\n");
@@ -153,7 +148,7 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t</div>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t<script type=\"text/javascript\"\r\n");
-      out.write("\t\tsrc=\"images/pageList/shswc/xxbsCxSzxxSh.js\"></script>\r\n");
+      out.write("\t\tsrc=\"images/pageList/shswc/xxbsCxSzxxBy.js\"></script>\r\n");
       out.write("</body>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

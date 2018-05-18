@@ -21,15 +21,15 @@ public class MzywShswcSzxxDao {
         return sessionFactory.getCurrentSession();
     }
     //获取逝者信息列表
-    public List<MzywShswcSzxx> queryList(Map<Object,Object> map){
+	public List<MzywShswcSzxx> queryList(Map<Object,Object> map){
     	String sql="select * from t_mzyw_shswc_szxx "
     			+ "where szxm like ? "
     			+ "and zhxgsj between ? and ? "
     			+ "and szsfzhm like ? ";
     	if(!map.get("bygmc").equals("")) {
-    		sql+="and bygmc =?";
+    		sql+="and bygmc = ? ";
     	}else {
-    		sql+="and 1=1 or bygmc =?";
+    		sql+="and 1=1 or bygmc =? ";
     	}
     	sql+=" limit ?,?";
     	SQLQuery query = getSession().createSQLQuery(sql).addEntity(MzywShswcSzxx.class);
@@ -78,11 +78,6 @@ public class MzywShswcSzxxDao {
 	}
 	//更新对象信息
 	public void update(MzywShswcSzxx mzy) {
-		MzywShswcSzxx oldMzy= (MzywShswcSzxx)queryById(mzy.getId());
-		mzy.setCjsj(oldMzy.getCjsj());
-		mzy.setCjyh(oldMzy.getCjyh());
-		mzy.setYxbs(oldMzy.getYxbs());
-		mzy.setBygmc(oldMzy.getBygmc());
 		getSession().update(mzy);
 	}
 	//新增对象信息
