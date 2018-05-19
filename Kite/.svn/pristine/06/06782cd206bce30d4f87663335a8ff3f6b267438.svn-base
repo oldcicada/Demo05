@@ -25,15 +25,15 @@ $(function(){
 
 function select(){
 	$.post("dictList",
-			{"dm":"submit"},
+			{"dm":"funeral"},
 			function(data,status){
 				if(status){
-					$("#zcbs").empty();
+					$("#bygmc").empty();
 					var content="<option value=''>请选择</option>";
 					for(var i=0;i<data.length;i++){
 						content+="<option value='"+data[i].lxjp+"'>"+data[i].mc+"</option>";
 					}
-					$("#zcbs").append(content);
+					$("#bygmc").append(content);
 				}
 			});
 }
@@ -81,13 +81,13 @@ function queryPage(){
 	var startDate=$("input[name=startDate]").val();
 	var endDate=$("input[name=endDate]").val();
 	var szxm=$("input[name=szxm]").val();
-	var zcbs=$("select[name=zcbs]").val();
+	var bygmc=$("select[name=bygmc]").val();
 	var szsfzhm=$("input[name=szsfzhm]").val();
-	$.post("user/xxbsCxSzxxBy",
+	$.post("user/xxbsCxSzxxSh",
 			{"pageIndex":pageIndex,"pageSize":pageSize,
 		"szxm":szxm,
-		"zcbs":zcbs,
-		"bygmc":"",
+		"bygmc":bygmc,
+		"zcbs":"",
 		"szsfzhm":szsfzhm,
 		"startDate":startDate,"endDate":endDate},
 			function(data,status){
@@ -97,18 +97,14 @@ function queryPage(){
 					$("#content").empty();
 					for(var i=0;i<list.length;i++){
 						var content="<tr><td><input type='checkbox' class='table_check'></td><td>"+(i+1)
+						+"</td><td>"+list[i].bygmc
 						+"</td><td>"+list[i].szxm
 						+"</td><td>"+list[i].szsfzhm
-						+"</td><td>"+list[i].zcbs
 						+"</td><td>" +list[i].zhxgsj
 						+"</td><td>" +list[i].zdjzdx
-						+"</td><td>" +list[i].szhjd+"</td>";
-						if(list[i].zcbs=="已报送"){
-							content+="<td class='text-center'><a href='user/xxbsXqSzxxBy?id="+list[i].id+"'> 查看 </a></td></tr>";
-						}else{
-							content+="<td class='text-center'><a href='user/xxbsBsSzxxBy?id="+list[i].id+"'>报送  </a>"
-							+"<a href='user/xxbsScSzxxBy?id="+list[i].id+"'> 删除</a></td></tr>";
-						}
+						+"</td><td>" +list[i].szhjd
+						+"</td><td class='text-center'><a href='user/xxbsXqSzxxSh?id="+list[i].id+"'>查看</a> "
+						+"</td></tr>";
 						$("#content").append(content);
 					}
 				}

@@ -30,6 +30,12 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		return "shswc/shswXxCxSzBygy";
 	}
 
+	@RequestMapping(value = "/user/xxbsBsGhjzBy", method = RequestMethod.GET)
+	public String xxbsBsGhjzByGet() {
+
+		return "shswc/xxbsBsGhjzBy";
+	}
+
 	@RequestMapping(value = "/user/xxbsBsMzxxGm", method = RequestMethod.GET)
 	public String xxbsBsMzxxGmGet() {
 
@@ -40,6 +46,12 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	public String xxbsBsYtwyByGet() {
 
 		return "shswc/xxbsBsYtwyBy";
+	}
+
+	@RequestMapping(value = "/user/xxbsCxGhjzBy", method = RequestMethod.GET)
+	public String xxbsCxGhjzByGet() {
+
+		return "shswc/xxbsCxGhjzBy";
 	}
 
 	@RequestMapping(value = "/user/xxbsCxMzxxGm", method = RequestMethod.GET)
@@ -56,8 +68,7 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	}
 
 	// 社会事务处-start
-	
-	/* 逝者信息-start */
+
 	// 逝者信息查询-社会事务处-GET
 	@RequestMapping(value = "/user/xxbsCxSzxxSh", method = RequestMethod.GET)
 	public String xxbsCxSzxxShGet() {
@@ -210,65 +221,13 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		return "shswc/xxbsCxSzxxBy";
 	}	
 	
-	/* 逝者信息-end */
-	
-	/* 骨灰江葬-start */
-	// 骨灰江葬查询-社会事务处 - GET
+	// 骨灰江葬查询-社会事务处
 	@RequestMapping(value = "/user/xxbsCxGhjzSh", method = RequestMethod.GET)
 	public String xxbsCxGhjzShGet() {
 		return "shswc/xxbsCxGhjzSh";
 	}
 	
-	// 骨灰江葬详情-社会事务处 - GET
-	@RequestMapping(value = "/user/xxbsXqGhjzSh", method = RequestMethod.GET)
-	public String xxbsXqGhjzShGet(Model model,String id) {
-		MzywShswcSzxx mzy= mzywShswcSzxxService.queryById(id);
-		model.addAttribute("szxx",mzy);
-		return "shswc/xxbsXqGhjzSh";
-	}
 	
-	// 骨灰江葬查询-殡仪馆 - GET
-	@RequestMapping(value = "/user/xxbsCxGhjzBy", method = RequestMethod.GET)
-	public String xxbsCxGhjzByGet() {
-		return "shswc/xxbsCxGhjzBy";
-	}
-	
-	// 骨灰江葬详情-殡仪馆 - GET
-	@RequestMapping(value = "/user/xxbsXqGhjzBy", method = RequestMethod.GET)
-	public String xxbsXqGhjzByGet(Model model,String id) {
-		MzywShswcSzxx mzy= mzywShswcSzxxService.queryById(id);
-		model.addAttribute("szxx",mzy);
-		return "shswc/xxbsXqGhjzBy";
-	}
-	
-	// 骨灰江葬报送-殡仪馆 - GET
-	@RequestMapping(value = "/user/xxbsBsGhjzBy", method = RequestMethod.GET)
-	public String xxbsBsGhjzByGet(Model model,String id) {
-		MzywShswcSzxx mzy= mzywShswcSzxxService.queryById(id);
-		model.addAttribute("szxx",mzy);
-		return "shswc/xxbsBsGhjzBy";
-	}
-	
-	// 骨灰江葬删除-殡仪馆 - POST
-	@RequestMapping(value = "/user/xxbsScGhjzBy", method = RequestMethod.POST)
-	public String xxbsScGhjzByPOST(String id) {
-		mzywShswcSzxxService.deleteById(id);
-		return "shswc/xxbsCxGhjzBy";
-	}
-	
-	// 骨灰江葬报送-殡仪馆 - POST
-	@RequestMapping(value = "/user/xxbsBsGhjzBy", method = RequestMethod.POST)
-	public String xxbsBsGhjzByPOST(String id) {
-		return "";
-	}
-	
-	// 骨灰江葬暂存-殡仪馆 - POST
-	@RequestMapping(value = "/user/xxbsZcGhjzBy", method = RequestMethod.POST)
-	public String xxbsZcGhjzByPOST(String id) {
-		return "";
-	}
-
-	/* 骨灰江葬-end */
 	// 社会事务处-end
 
 	@RequestMapping(value = "/user/xxbsCxYtwyBy", method = RequestMethod.GET)
@@ -281,6 +240,19 @@ private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	public String xxbsCxYtwyShGet() {
 
 		return "shswc/xxbsCxYtwySh";
+	}
+
+	@RequestMapping(value = "/user/xxbsXqGhjzBy", method = RequestMethod.GET)
+	public String xxbsXqGhjzByGet() {
+
+		return "shswc/xxbsXqGhjzBy";
+	}
+
+	// 骨灰江葬详情-社会事务处
+	@RequestMapping(value = "/user/xxbsXqGhjzSh", method = RequestMethod.GET)
+	public String xxbsXqGhjzShGet() {
+
+		return "shswc/xxbsXqGhjzSh";
 	}
 
 	@RequestMapping(value = "/user/xxbsXqMzxxGm", method = RequestMethod.GET)

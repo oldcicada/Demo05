@@ -7,6 +7,20 @@ $(function(){
 	$(".t_fanye > span").click(otherOperate);
 	$("#query").click(query);
 	$("#reset").click(reset);
+	$('#pageSize').change(queryPage);
+	$("#pageTo").blur(function(){
+		var pageTo=parseInt($('#pageTo').val());
+		if(isNaN(pageTo)){
+			pageTo=1;
+		}
+		if(pageTo<=pageTotal){
+			pageIndex=pageTo;
+			queryPage();
+		}else{
+			alert("当前最多为"+pageTotal+"页");
+			$("#pageTo").val('');
+		}
+	});
 });
 
 function select(){
@@ -64,10 +78,6 @@ function otherOperate(){
 
 function queryPage(){
 	var pageSize=$('#pageSize').val();
-	var pageTo=$('#pageTo').val();
-	if(pageTo!=""){
-		pageIndex=pageSize*pageTo;
-	}
 	var startDate=$("input[name=startDate]").val();
 	var endDate=$("input[name=endDate]").val();
 	var szxm=$("input[name=szxm]").val();
@@ -77,6 +87,7 @@ function queryPage(){
 			{"pageIndex":pageIndex,"pageSize":pageSize,
 		"szxm":szxm,
 		"bygmc":bygmc,
+		"zcbs":"0",
 		"szsfzhm":szsfzhm,
 		"startDate":startDate,"endDate":endDate},
 			function(data,status){
@@ -92,7 +103,7 @@ function queryPage(){
 						+"</td><td>" +list[i].zhxgsj
 						+"</td><td>" +list[i].zdjzdx
 						+"</td><td>" +list[i].szhjd
-						+"</td><td class='text-center'><a href='user/xxbsXqSzxxSh?id="+list[i].id+"'>查看</a> "
+						+"</td><td class='text-center'><a href='user/xxbsXqGhjzSh?id="+list[i].id+"'>查看</a> "
 						+"</td></tr>";
 						$("#content").append(content);
 					}

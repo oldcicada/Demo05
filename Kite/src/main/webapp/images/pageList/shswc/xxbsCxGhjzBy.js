@@ -100,14 +100,14 @@ function queryPage(){
 						+"</td><td>"+list[i].szxm
 						+"</td><td>"+list[i].szsfzhm
 						+"</td><td>"+list[i].zcbs
-						+"</td><td>" +list[i].zhxgsj
-						+"</td><td>" +list[i].zdjzdx
-						+"</td><td>" +list[i].szhjd+"</td>";
+						+"</td><td>" +list[i].szhjd
+						+"</td><td>" +list[i].jbrxm
+						+"</td><td>" +list[i].zhxgsj+"</td>";
 						if(list[i].zcbs=="已报送"){
-							content+="<td class='text-center'><a href='user/xxbsXqSzxxBy?id="+list[i].id+"'> 查看 </a></td></tr>";
+							content+="<td class='text-center'><a href='user/xxbsXqGhjzBy?id="+list[i].id+"'> 查看 </a></td></tr>";
 						}else{
-							content+="<td class='text-center'><a href='user/xxbsBsSzxxBy?id="+list[i].id+"'>报送  </a>"
-							+"<a href='user/xxbsScSzxxBy?id="+list[i].id+"'> 删除</a></td></tr>";
+							content+="<td class='text-center'><a href='user/xxbsBsGhjzBy?id="+list[i].id+"'>报送  </a>"
+							+"<a href='user/xxbsScGhjzBy?id="+list[i].id+"'> 删除</a></td></tr>";
 						}
 						$("#content").append(content);
 					}

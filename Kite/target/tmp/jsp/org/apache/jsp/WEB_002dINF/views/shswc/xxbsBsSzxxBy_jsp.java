@@ -96,7 +96,6 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t<div class=\"nei\">\r\n");
       out.write("\t\t\t\t\t\t\t<div class=\"ssjc_ru_title\">\r\n");
       out.write("\t\t\t\t\t\t    <span>信息报送 </span>\r\n");
-      out.write("\t\t\t\t\t\t\t<a href=\"user/xxbsBsSzxxBy\"><input type=\"submit\" value=\"信息报送\" ></a>\r\n");
       out.write("\t\t\t\t\t\t\t<a href=\"user/xxbsCxSzxxBy\"><input type=\"submit\" value=\"信息查询\"></a>\r\n");
       out.write("\t\t\t\t\t\t\t<div class=\"clear\"></div>\r\n");
       out.write("\t\t\t\t\t\t</div>\r\n");
@@ -108,9 +107,23 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t<table class=\"tj_table\" style=\"border: 0\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<thead>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t<td colspan=\"6\">逝者基本信息<input type=\"hidden\" value=\"");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<td colspan=\"6\">逝者基本信息\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${szxx.id }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" name=\"id\"></td>\r\n");
+      out.write("\" name=\"id\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${szxx.cjsj }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" name=\"cjsj\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${szxx.cjyh }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" name=\"cjyh\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${szxx.yxbs }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" name=\"yxbs\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${szxx.bygmc }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" name=\"bygmc\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t</thead>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<tbody>\r\n");
@@ -197,7 +210,7 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td>殡仪馆内遗体冷藏费用</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td>普通骨灰盒</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td>普通告别厅费用</td>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<tr/>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<tr>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td><p>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" id=\"text\" name=\"ptclytjyf\" value=\"");
@@ -243,7 +256,6 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t\t\t\tpattern=\"^[0-9_]{1,5}$\" required=\"required\"/>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<tr>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td colspan=\"6\">\r\n");
@@ -290,7 +302,7 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t<p>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"submit\" value=\"  暂存  \" class=\"in_sub\"/>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"reset\" value=\"  重置   \" class=\"in_sub\"></a>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"reset\" value=\"  报送  \" class=\"in_sub\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"submit\" value=\"  报送  \" class=\"in_sub\" id=\"submit\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t</tr>\r\n");
@@ -305,6 +317,11 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t</div>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"images/pageList/shswc/xxbsBsSzxxBy.js\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\">\r\n");
+      out.write("\t$('#submit').click(function(){\r\n");
+      out.write("\t\t\t$(\"form\").attr(\"action\",\"user/xxbsBsSzxxBy\");\r\n");
+      out.write("\t});\r\n");
+      out.write("\t</script>\r\n");
       out.write("</body>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

@@ -34,7 +34,7 @@
 								<table class="tj_table" style="border: 0">
 									<thead>
 										<tr>
-											<td colspan="6">逝者基本信息<input type="hidden" name="id"></td>
+											<td colspan="6">逝者基本信息</td>
 										</tr>
 									</thead>
 									<tbody>
@@ -85,12 +85,18 @@
 													</select>
 												</p></td>
 											<td>是否选择江葬</td>
-											<td colspan="4"><p>
+											<td><p>
 											<input type="hidden" id="sfxzjzValue">
 													<select class="biaoti_select" name="sfxzjz" id="sfxzjz"
 														style="width: 150px; height: 30px">
 													</select>
 												</p></td>
+											<td>殡仪馆名称</td>
+											<td><p>
+													<select class="biaoti_select" name="bygmc" id="bygmc"
+														style="width: 150px; height: 30px">
+													</select>
+											</p></td>
 										</tr>
 										<tr>
 											<td colspan="6">
@@ -104,7 +110,7 @@
 											<td>殡仪馆内遗体冷藏费用</td>
 											<td>普通骨灰盒</td>
 											<td>普通告别厅费用</td>
-										<tr/>
+										</tr>
 										<tr>
 											<td><p>
 											<input type="text" id="text" name="ptclytjyf"
@@ -177,9 +183,9 @@
 										<tr>
 											<td colspan="6">
 												<p>
-													<input type="submit" value="  暂存报送 " class="in_sub"/>
+													<input type="submit" value="  暂存报送 " class="in_sub" id="submit"/>
 													<input type="reset" class="in_sub" value="  重置  "></a></a>
-													<input type="submit" value="  新增报送  " class="in_sub" id="add">
+													<input type="submit" value="  新增报送  " class="in_sub">
 												</p>
 											</td>
 										</tr>
@@ -195,8 +201,22 @@
 	</div>
 	<script type="text/javascript" src="images/pageList/shswc/xxbsBsSzxxBy.js"></script>
 	<script type="text/javascript">
-	$("#add").click(){
-		$form.attr("user/xxbsZcSzxxBy");	
-	}
+	$(function(){
+		$.post("dictList",
+				{"dm":"funeral"},
+				function(data,status){
+					if(status){
+						$("#bygmc").empty();
+						var content="";
+						for(var i=0;i<data.length;i++){
+							content+="<option value='"+data[i].lxjp+"'>"+data[i].mc+"</option>";
+						}
+						$("#bygmc").append(content);
+					}
+				});
+	});
+	$("#submit").click(function(){
+		$("form").attr("action","user/xxbsAdZcSzxxBy");
+	});
 	</script>
 </body>

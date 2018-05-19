@@ -115,6 +115,8 @@ if (i<10)
 									逝者信息查询(殡仪馆用户)</a></li>
 							<li><a href="user/xxbsCxGhjzSh" target="frame"><i class="fa fa-bookmark"></i>
 									骨灰江葬报送 (社会事务处)</a></li>
+							<li><a href="user/xxbsCxGhjzBy" target="frame"><i class="fa fa-bookmark"></i>
+									骨灰江葬报送 (殡仪馆用户)</a></li>
 							<li><a href="user/xxbsCxYtwySh" target="frame"><i class="fa fa-bookmark"></i>
 									遗体外运报送 (社会事务处)</a></li>
 						    <li><a href="user/xxbsCxMzxxSh" target="frame"><i class="fa fa-bookmark"></i>
