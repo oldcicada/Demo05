@@ -9,7 +9,6 @@
 	color: #fff;
 	font-size: 20px;
 }
-
 #text {
 	width: 150px;
 }
@@ -21,9 +20,8 @@
 			<div class="yjgl">
 				<div class="ssjc_right_up">
 					<div class="ssjc_ru_title">
-							<span class="left_ten">当前位置：首页->信息报送 </span> 
-							<a href="fxb_xx_cx_qx/xxbsBsQxjj" target="frame"><input type="submit" value="信息报送" ></a>
-							<a href="fxb_xx_cx_qx/fxbXxCxQx" target="frame"><input type="submit" value="信息查询"></a>
+							<span class="left_ten">骨灰江葬信息</span> 
+							<a href="user/xxbsCxGhjzBy" target="frame"><input type="submit" value="信息查询"></a>
 							<div class="clear"></div>
 						</div>
 					<div class="ssjc_right_bottom">
@@ -38,57 +36,34 @@
 									<tbody>
 										<tr>
 											<td>身份证号码</td>
-											<td><p>
-													<input type="text" id="text"
-														pattern="^[\u4E00-\u9FA5A-Za-z0-9_]{1,30}$"
-														required="required"/>
-												</p></td>
+											<td>${szxx.szsfzhm }</td>
 											<td>姓名</td>
-											<td><p>
-													<input type="text" id="text"
-														pattern="^[\u4E00-\u9FA5A-Za-z0-9_]{1,20}$"
-														required="required"/>
-												</p></td>
+											<td>${szxx.szxm }</td>
 											<td>户籍地</td>
-											<td><p>
-													<input type="text" id="text" pattern="^[0-9]{11}$"
-														required="required"/>
-												</p></td>
+											<td>${szxx.szhjd }</td>
 										</tr>
 										<tr>
 											<td colspan="6">经办人信息</td>
 										</tr>
 										<tr>
 											<td>身份证号码</td>
-											<td><p>
-													<input type="text" id="text"
-														pattern="^[\u4E00-\u9FA5A-Za-z0-9_]{1,30}$"
-														required="required"/>
-												</p></td>
+											<td>${szxx.jbrsfzhm }</td>
 											<td>姓名</td>
-											<td><p>
-													<input type="text" id="text"
-														pattern="^[\u4E00-\u9FA5A-Za-z0-9_]{1,20}$"
-														required="required"/>
-												</p></td>
+											<td>${szxx.jbrxm }</td>
 											<td>联系电话</td>
-											<td><p>
-													<input type="text" id="text" pattern="^[0-9]{11}$"
-														required="required"/>
-												</p></td>
+											<td>${szxx.jbrlxdh }</td>
 										</tr>
 										<tr>
 											<td colspan="6">
 												<p>
 													
-													<input type="reset" value="  返回 " class="in_sub">
+													<a href="user/xxbsCxGhjzBy"><input type="reset" value="  返回 " class="in_sub"></a>
 												</p>
 											</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
-
 						</div>
 					</div>
 				</div>

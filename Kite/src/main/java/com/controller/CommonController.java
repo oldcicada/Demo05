@@ -1,44 +1,24 @@
 package com.controller;
 
-import java.io.FileOutputStream;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.po.MzywFxb;
 import com.po.MzywZd;
-import com.service.FxbService;
 import com.utils.DictUtil;
-import com.utils.PageDto;
 
 @Controller
 public class CommonController {
 	@Autowired
 	private DictUtil dictUtil;
-	@Autowired
-	private FxbService fxbService;
-	@SuppressWarnings("static-access")
 	@RequestMapping("/dictList")
 	@ResponseBody//根据类型获取字典对象集合
 	public List<MzywZd> queryDictList(String dm) {
+		@SuppressWarnings("static-access")
 		List<MzywZd> list=dictUtil.getDict(dm);
 		return list;
 	}
-	
-	
-
-	
-	
-	
 }

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -61,9 +62,21 @@ public class MzywShswcYtwy implements Serializable {
 
 	@Column(columnDefinition = "VARCHAR(14) COMMENT '最后修改时间'")
 	private String zhxgsj;
-
+	
+	@Column(columnDefinition = "VARCHAR(14) COMMENT '与死者关系'")
+	private String gx;
+	//保存殡仪馆名称
+	@Transient
+	private String bygmc;
 	public MzywShswcYtwy() {
 
+	}
+	public String getBygmc() {
+		return bygmc;
+	}
+
+	public void setBygmc(String bygmc) {
+		this.bygmc = bygmc;
 	}
 
 	public String getId() {
@@ -186,4 +199,11 @@ public class MzywShswcYtwy implements Serializable {
 		this.zhxgsj = zhxgsj;
 	}
 
+	public String getGx() {
+		return gx;
+	}
+
+	public void setGx(String gx) {
+		this.gx = gx;
+	}
 }

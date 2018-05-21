@@ -112,15 +112,19 @@ if (i<10)
 							<li><a href="user/xxbsCxSzxxSh" target="frame"><i class="fa fa-bookmark"></i>
 									逝者信息报送(社会事务处)</a></li>
 							<li><a href="user/xxbsCxSzxxBy" target="frame"><i class="fa fa-bookmark"></i>
-									逝者信息查询(殡仪馆用户)</a></li>
+									逝者信息报送(殡仪馆)</a></li>
 							<li><a href="user/xxbsCxGhjzSh" target="frame"><i class="fa fa-bookmark"></i>
 									骨灰江葬报送 (社会事务处)</a></li>
 							<li><a href="user/xxbsCxGhjzBy" target="frame"><i class="fa fa-bookmark"></i>
-									骨灰江葬报送 (殡仪馆用户)</a></li>
+									骨灰江葬报送 (殡仪馆)</a></li>
 							<li><a href="user/xxbsCxYtwySh" target="frame"><i class="fa fa-bookmark"></i>
 									遗体外运报送 (社会事务处)</a></li>
+							<li><a href="user/xxbsCxYtwyBy" target="frame"><i class="fa fa-bookmark"></i>
+									遗体外运报送 (殡仪馆)</a></li>
 						    <li><a href="user/xxbsCxMzxxSh" target="frame"><i class="fa fa-bookmark"></i>
 									墓葬信息报送 (社会事务处)</a></li>
+							<li><a href="user/xxbsCxMzxxGm" target="frame"><i class="fa fa-bookmark"></i>
+									墓葬信息报送 (公墓处)</a></li>
 							<li><a href="user/xxbsCxBdxxAz" target="frame"><i class="fa fa-bookmark"></i>
 									信息报送 (安置处)</a></li>
 							<li><a href="user/xxbsCxPxbzDc" target="frame"><i class="fa fa-bookmark"></i>

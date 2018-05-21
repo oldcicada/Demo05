@@ -85,9 +85,7 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t<div class=\"ssjc_right_up\">\r\n");
       out.write("\t\t\t\t\t<div class=\"nei\">\r\n");
       out.write("\t\t\t\t\t\t<div class=\"ssjc_ru_title\">\r\n");
-      out.write("\t\t\t\t\t\t\t<span class=\"left_ten\"> 查询条件 </span> <a href=\"user/xxbsAdGhjzBy\"><input\r\n");
-      out.write("\t\t\t\t\t\t\t\ttype=\"submit\" value=\"新增信息报送\"></a> <a\r\n");
-      out.write("\t\t\t\t\t\t\t\thref=\"user/xxbsCxGhjzBy\"><input type=\"submit\" value=\"信息查询\"></a>\r\n");
+      out.write("\t\t\t\t\t\t\t<a href=\"user/xxbsCxGhjzBy\"><input type=\"submit\" value=\"信息查询\"></a>\r\n");
       out.write("\t\t\t\t\t\t\t<div class=\"clear\"></div>\r\n");
       out.write("\t\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t\t\t<div class=\"sbaz_table\">\r\n");

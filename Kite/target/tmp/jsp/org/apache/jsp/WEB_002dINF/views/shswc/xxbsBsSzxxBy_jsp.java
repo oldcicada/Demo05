@@ -82,7 +82,6 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\tcolor: #fff;\r\n");
       out.write("\tfont-size: 20px;\r\n");
       out.write("}\r\n");
-      out.write("\r\n");
       out.write("#text {\r\n");
       out.write("\twidth: 150px;\r\n");
       out.write("}\r\n");

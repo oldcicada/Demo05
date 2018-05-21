@@ -12,9 +12,7 @@
 				<div class="ssjc_right_up">
 					<div class="nei">
 						<div class="ssjc_ru_title">
-							<span class="left_ten"> 查询条件 </span> <a href="user/xxbsAdGhjzBy"><input
-								type="submit" value="新增信息报送"></a> <a
-								href="user/xxbsCxGhjzBy"><input type="submit" value="信息查询"></a>
+							<a href="user/xxbsCxGhjzBy"><input type="submit" value="信息查询"></a>
 							<div class="clear"></div>
 						</div>
 						<div class="sbaz_table">

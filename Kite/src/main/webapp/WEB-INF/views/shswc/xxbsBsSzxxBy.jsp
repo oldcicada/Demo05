@@ -9,7 +9,6 @@
 	color: #fff;
 	font-size: 20px;
 }
-
 #text {
 	width: 150px;
 }

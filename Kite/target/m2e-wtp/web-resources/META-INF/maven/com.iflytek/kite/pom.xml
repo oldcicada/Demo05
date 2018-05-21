@@ -7,11 +7,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>kite Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  
-  
-  
 	
-<!-- <repositories>
+<repositories>
 		<repository>
             <id>central-repos</id>
             <name>central Releases</name>
@@ -24,7 +21,7 @@
 			<name>Team Nexus Repository</name>
 			<url>http://localhost:8081/nexus/content/groups/public</url>
 		</pluginRepository>
-	</pluginRepositories> -->
+	</pluginRepositories>
 	
   <dependencies>
   	<!-- junit单元测试 -->
@@ -223,12 +220,6 @@
 		<version>2.4</version>
 	</dependency>
 	
-	<!-- 导出数据到excel -->
-	<dependency>
-	    <groupId>org.apache.poi</groupId>
-	    <artifactId>poi</artifactId>
-	    <version>3.0.2-FINAL</version>
-	</dependency>
   </dependencies>
 	
   <!-- 版本配置信息 -->

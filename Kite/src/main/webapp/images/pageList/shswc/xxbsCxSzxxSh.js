@@ -41,10 +41,10 @@ function query(){
 	queryPage();
 }
 function reset(){
-	var startDate=$("input[name=startDate]").val("");
-	var endDate=$("input[name=endDate]").val("");
-	var szxm=$("input[name=szxm]").val("");
-	var szsfzhm=$("input[name=szsfzhm]").val("");
+	$("input[name=startDate]").val("");
+	$("input[name=endDate]").val("");
+	$("input[name=szxm]").val("");
+	$("input[name=szsfzhm]").val("");
 	select();
 	queryPage();
 }
@@ -103,7 +103,7 @@ function queryPage(){
 						+"</td><td>" +list[i].zhxgsj
 						+"</td><td>" +list[i].zdjzdx
 						+"</td><td>" +list[i].szhjd
-						+"</td><td class='text-center'><a href='user/xxbsXqGhjzSh?id="+list[i].id+"'>查看</a> "
+						+"</td><td class='text-center'><a href='user/xxbsXqSzxxSh?id="+list[i].id+"'>查看</a> "
 						+"</td></tr>";
 						$("#content").append(content);
 					}

@@ -19,7 +19,7 @@
 		<!-- 格式化sql -->
 		<property name="format_sql">true</property>
 		<!-- 自动生成数据表的策略，update第一次创建表，以后更新 -->
-	<!-- 	<property name="hbm2ddl.auto">update</property> -->
+		<property name="hbm2ddl.auto">update</property>
 		
 		<!-- 加载映射文件 -->
 		<mapping class="com.po.User" />
@@ -37,14 +37,14 @@
 		<mapping class="com.po.MzywJssz" />
 		<mapping class="com.po.MzywSczy" />
 		<mapping class="com.po.MzywSczyPz" />
-		<mapping class="com.po.MzywShswcGhjzxm" />
+		<mapping class="com.po.MzywShswcGhjz" />
 		<mapping class="com.po.MzywShswcMzxx" />
 		<mapping class="com.po.MzywShswcSzxx" />
 		<mapping class="com.po.MzywShswcYtwy" />
 		<mapping class="com.po.MzywTzgg" />
 		<mapping class="com.po.MzywZd" />
 		<mapping class="com.po.MzywZjcl" /> 
-		
+
 	</session-factory>
 
 </hibernate-configuration>
