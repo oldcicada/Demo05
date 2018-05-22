@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.po.MzywShswcGhjz;
+import com.po.MzywShswcMzxx;
 import com.po.MzywShswcSzxx;
 import com.po.MzywShswcYtwy;
 import com.po.User;
@@ -168,17 +170,31 @@ public class ShswcController {
 	}	
 	/* 逝者信息-end */
 	
+	
 	/* 骨灰江葬-start */
 	// 骨灰江葬查询-社会事务处 - GET
 	@RequestMapping(value = "/user/xxbsCxGhjzSh", method = RequestMethod.GET)
 	public String xxbsCxGhjzShGet() {
 		return "shswc/xxbsCxGhjzSh";
 	}
-	
+	// 骨灰江葬查询-社会事务处 - POST
+	@ResponseBody
+	@RequestMapping(value = "/user/xxbsCxGhjzSh", method = RequestMethod.POST)
+		public PageDto<MzywShswcGhjz> xxbsCxGhjzShPOST(int pageIndex, int pageSize, String szxm, String startDate,
+					String endDate, String szsfzhm, String bygmc,String zcbs) {
+				PageDto<MzywShswcGhjz> dto = mzywShswcSzxxService.queryGhjzList(pageIndex, pageSize, szxm, startDate, endDate,
+						szsfzhm, bygmc,zcbs);
+				List<MzywShswcGhjz> list = dto.getList();
+				for (MzywShswcGhjz mzy : list) {
+					String mc = DictUtil.getDictMc("funeral", mzy.getBygmc());
+					mzy.setBygmc(mc);
+				}
+				return dto;
+			}
 	// 骨灰江葬详情-社会事务处 - GET
 	@RequestMapping(value = "/user/xxbsXqGhjzSh", method = RequestMethod.GET)
 	public String xxbsXqGhjzShGet(Model model,String id) {
-		MzywShswcSzxx mzy= mzywShswcSzxxService.queryById(id);
+		MzywShswcGhjz mzy= mzywShswcSzxxService.queryGhjzById(id);
 		model.addAttribute("szxx",mzy);
 		return "shswc/xxbsXqGhjzSh";
 	}
@@ -188,19 +204,49 @@ public class ShswcController {
 	public String xxbsCxGhjzByGet() {
 		return "shswc/xxbsCxGhjzBy";
 	}
-	
+	// 骨灰江葬查询-殡仪馆 - POST
+		@ResponseBody
+		@RequestMapping(value = "/user/xxbsCxGhjzBy", method = RequestMethod.POST)
+	public PageDto<MzywShswcGhjz> xxbsCxGhjzByPOST(int pageIndex, int pageSize, String szxm, String startDate,
+						String endDate, String szsfzhm, String bygmc,String zcbs) {
+					PageDto<MzywShswcGhjz> dto = mzywShswcSzxxService.queryGhjzList(pageIndex, pageSize, szxm, startDate, endDate,
+							szsfzhm, bygmc,zcbs);
+					List<MzywShswcGhjz> list = dto.getList();
+					for (MzywShswcGhjz mzy : list) {
+						String mc = DictUtil.getDictMc("funeral", mzy.getBygmc());
+						mzy.setBygmc(mc);
+					}
+					for (MzywShswcGhjz mzy : list) {
+						String mc = DictUtil.getDictMc("submit", mzy.getZcbs());
+						mzy.setZcbs(mc);
+					}
+					return dto;
+				}
 	// 骨灰江葬详情-殡仪馆 - GET
 	@RequestMapping(value = "/user/xxbsXqGhjzBy", method = RequestMethod.GET)
 	public String xxbsXqGhjzByGet(Model model,String id) {
-		MzywShswcSzxx mzy= mzywShswcSzxxService.queryById(id);
+		MzywShswcGhjz mzy = mzywShswcSzxxService.queryGhjzById(id);
 		model.addAttribute("szxx",mzy);
 		return "shswc/xxbsXqGhjzBy";
+	}
+	@ResponseBody
+	@RequestMapping(value = "/user/xxbsXqGhjzBy", method = RequestMethod.POST)
+	public PageDto<MzywShswcGhjz> xxbsXqGhjzByPOST(int pageIndex, int pageSize, String szxm, String startDate,
+			String endDate, String szsfzhm, String bygmc,String zcbs) {
+		PageDto<MzywShswcGhjz> dto = mzywShswcSzxxService.queryGhjzList(pageIndex, pageSize, szxm, startDate, endDate,
+				szsfzhm, bygmc,zcbs);
+		List<MzywShswcGhjz> list = dto.getList();
+		for (MzywShswcGhjz mzy : list) {
+			String mc = DictUtil.getDictMc("funeral", mzy.getBygmc());
+			mzy.setBygmc(mc);
+		}
+		return dto;
 	}
 	
 	// 骨灰江葬报送-殡仪馆 - GET
 	@RequestMapping(value = "/user/xxbsBsGhjzBy", method = RequestMethod.GET)
 	public String xxbsBsGhjzByGet(Model model,String id) {
-		MzywShswcSzxx mzy= mzywShswcSzxxService.queryById(id);
+		MzywShswcGhjz mzy= mzywShswcSzxxService.queryGhjzById(id);
 		model.addAttribute("szxx",mzy);
 		return "shswc/xxbsBsGhjzBy";
 	}
@@ -217,8 +263,8 @@ public class ShswcController {
 	
 	// 骨灰江葬删除-殡仪馆 - GET
 	@RequestMapping(value = "/user/xxbsScGhjzBy", method = RequestMethod.GET)
-	public String xxbsScGhjzByPOST(String id) {
-		mzywShswcSzxxService.deleteById(id);
+	public String xxbsScGhjzByget(String id) {
+		mzywShswcSzxxService.deleteGhjzById(id);
 		return "shswc/xxbsCxGhjzBy";
 	}
 	
@@ -240,38 +286,60 @@ public class ShswcController {
 	public String xxbsCxYtwyShGet() {
 		return "shswc/xxbsCxYtwySh";
 	}
-	// 遗体外运详情-社会事务处 - GET
-	@RequestMapping(value = "/user/xxbsXqYtwySh", method = RequestMethod.GET)
-	public PageDto<MzywShswcYtwy> xxbsXqYtwyShGet(int pageIndex, int pageSize, String szxm, String startDate,
+	// 遗体外运查询-社会事务处 - POST
+		@RequestMapping(value = "/user/xxbsCxYtwySh", method = RequestMethod.POST)
+		@ResponseBody
+		public PageDto<MzywShswcYtwy> xxbsCxYtwyShPOST(int pageIndex, int pageSize, String szxm, String startDate,
+				String endDate, String szsfzhm, String bygmc,String zcbs) {
+			PageDto<MzywShswcYtwy> dto = mzywShswcSzxxService.queryYtwyList(pageIndex, pageSize, szxm, startDate, endDate,
+					szsfzhm, bygmc,zcbs);
+			List<MzywShswcYtwy> list = dto.getList();
+			for (MzywShswcYtwy mzy : list) {
+				String mc = DictUtil.getDictMc("funeral", mzy.getBygmc());
+				mzy.setBygmc(mc);
+			}
+			return dto;
+		}
+		// 遗体外运详情-社会事务处 - GET
+		@RequestMapping(value = "/user/xxbsXqYtwySh", method = RequestMethod.GET)
+		public String xxbsXqYtwyShGet(Model model,String id) {
+			MzywShswcYtwy ytwy = mzywShswcSzxxService.queryYtwyById(id);
+			ytwy.setSzswyy(DictUtil.getDictMc("cause", ytwy.getSzswyy()));
+			ytwy.setGx(DictUtil.getDictMc("relation", ytwy.getGx()));
+			model.addAttribute("ytwy",ytwy);
+			return "shswc/xxbsXqYtwySh";
+		}
+		// 遗体外运详情-殡仪馆 - GET
+		@RequestMapping(value = "/user/xxbsXqYtwyBy", method = RequestMethod.GET)
+		public String xxbsXqYtwyByGet(Model model,String id) {
+			MzywShswcYtwy ytwy = mzywShswcSzxxService.queryYtwyById(id);
+			ytwy.setSzswyy(DictUtil.getDictMc("cause", ytwy.getSzswyy()));
+			ytwy.setGx(DictUtil.getDictMc("relation", ytwy.getGx()));
+			model.addAttribute("ytwy",ytwy);
+			return "shswc/xxbsXqYtwyBy";
+		}
+		// 遗体外运查询-殡仪馆 - GET
+		@RequestMapping(value = "/user/xxbsCxYtwyBy", method = RequestMethod.GET)
+		public String xxbsCxYtwyByGet() {
+			return "shswc/xxbsCxYtwyBy";
+		}
+		// 遗体外运查询-殡仪馆 - POST
+		@RequestMapping(value = "/user/xxbsCxYtwyBy", method = RequestMethod.POST)
+		@ResponseBody
+	public PageDto<MzywShswcYtwy> xxbsXqYtwyByPOST(int pageIndex, int pageSize, String szxm, String startDate,
 			String endDate, String szsfzhm, String bygmc,String zcbs) {
 		PageDto<MzywShswcYtwy> dto = mzywShswcSzxxService.queryYtwyList(pageIndex, pageSize, szxm, startDate, endDate,
 				szsfzhm, bygmc,zcbs);
 		List<MzywShswcYtwy> list = dto.getList();
 		for (MzywShswcYtwy mzy : list) {
-			String mc = DictUtil.getDictMc("funeral", mzy.getBygmc());
-			mzy.setBygmc(mc);
+			String mc = DictUtil.getDictMc("submit", mzy.getZcbs());
+			mzy.setZcbs(mc);;
 		}
 		for (MzywShswcYtwy mzy : list) {
-			String mc = DictUtil.getDictMc("succour", mzy.getGx());
+			String mc = DictUtil.getDictMc("relation", mzy.getGx());
 			mzy.setGx(mc);
 		}
 		return dto;
-	}
-	// 遗体外运查询-殡仪馆 - GET
-	@RequestMapping(value = "/user/xxbsCxYtwyBy", method = RequestMethod.GET)
-	public String xxbsCxYtwyByGet() {
-		return "shswc/xxbsCxYtwyBy";
-	}
-	@RequestMapping(value = "/user/xxbsCxYtwyBy", method = RequestMethod.POST)
-	public String xxbsCxYtwyByPOST() {
-		return "shswc/xxbsCxYtwyBy";
-	}
-	// 遗体外运详情-殡仪馆 - GET
-	@RequestMapping(value = "/user/xxbsXqYtwyBy", method = RequestMethod.GET)
-	public String xxbsXqYtwyByGet(Model model,String id) {
-		MzywShswcYtwy ytwy = mzywShswcSzxxService.queryYtwyById(id);
-		model.addAttribute("ytwy",ytwy);
-		return "shswc/xxbsXqYtwyBy";
 	}
 	// 遗体外运报送-殡仪馆 - GET
 	@RequestMapping(value = "/user/xxbsBsYtwyBy", method = RequestMethod.GET)
@@ -287,12 +355,13 @@ public class ShswcController {
 		ytwy.setZhxgyh(user.getName());
 		ytwy.setZhxgsj(sdf.format(new Date()));
 		ytwy.setZcbs("0");
+		ytwy.setYxbs("0");
 		mzywShswcSzxxService.updateYtwy(ytwy);
 		return "shswc/xxbsCxYtwyBy";
 	}
-	// 遗体外运删除-殡仪馆 - POST
-	@RequestMapping(value = "/user/xxbsScYtwyBy", method = RequestMethod.POST)
-	public String xxbsScYtwyByPOST(String id) {
+	// 遗体外运删除-殡仪馆 - GET
+	@RequestMapping(value = "/user/xxbsScYtwyBy", method = RequestMethod.GET)
+	public String xxbsScYtwyByGET(String id) {
 		mzywShswcSzxxService.deleteYtwyById(id);
 		return "shswc/xxbsCxYtwyBy";
 	}
@@ -303,6 +372,7 @@ public class ShswcController {
 		ytwy.setZhxgyh(user.getName());
 		ytwy.setZhxgsj(sdf.format(new Date()));
 		ytwy.setZcbs("1");
+		ytwy.setYxbs("0");
 		mzywShswcSzxxService.updateYtwy(ytwy);
 		return "shswc/xxbsCxYtwyBy";
 	}
@@ -329,11 +399,29 @@ public class ShswcController {
 	public String xxbsCxMzxxShGet() {
 		return "shswc/xxbsCxMzxxSh";
 	}
+	// 墓葬信息查询-社会事务处 - POST
+		@RequestMapping(value = "/user/xxbsCxMzxxSh", method = RequestMethod.POST)
+		@ResponseBody
+		public PageDto<MzywShswcMzxx> xxbsCxMzxxShPOST(int pageIndex, int pageSize, String szxm, String startDate,
+				String endDate, String szsfzhm, String mxqymc,String zcbs,String zsxz) {
+			PageDto<MzywShswcMzxx> dto = mzywShswcSzxxService.queryMzxxList(pageIndex, pageSize, szxm, startDate, endDate,
+					szsfzhm, mxqymc,zcbs,zsxz);
+			List<MzywShswcMzxx> list = dto.getList();
+			for (MzywShswcMzxx mzy : list) {
+				if(mzy.getMxqymc()!=null) {
+					String mc = DictUtil.getDictMc("tibetan", mzy.getMxqymc());
+					mzy.setMxqymc(mc);
+				}
+				String mc = DictUtil.getDictMc("cemetery", mzy.getZsxz());
+				mzy.setZsxz(mc);
+			}
+			return dto;
+		}
 	// 墓葬信息详情-社会事务处 - GET
 	@RequestMapping(value = "/user/xxbsXqMzxxSh", method = RequestMethod.GET)
 	public String xxbsXqMzxxShGet(Model model,String id) {
-		MzywShswcSzxx mzy= mzywShswcSzxxService.queryById(id);
-		model.addAttribute("szxx",mzy);
+		MzywShswcMzxx mzxx = mzywShswcSzxxService.queryMzxxById(id);
+		model.addAttribute("mzxx",mzxx);
 		return "shswc/xxbsXqMzxxSh";
 	}
 	// 墓葬信息查询-公墓 - GET
@@ -344,15 +432,19 @@ public class ShswcController {
 	// 墓葬信息详情-公墓 - GET
 	@RequestMapping(value = "/user/xxbsXqMzxxGm", method = RequestMethod.GET)
 	public String xxbsXqMzxxGmGet(Model model,String id) {
-		MzywShswcSzxx mzy= mzywShswcSzxxService.queryById(id);
-		model.addAttribute("szxx",mzy);
+		MzywShswcMzxx mzxx = mzywShswcSzxxService.queryMzxxById(id);
+		if(mzxx.getMxqymc()!=null) {
+			mzxx.setMxqymc(DictUtil.getDictMc("cemetery", mzxx.getMxqymc()));
+		}
+		mzxx.setZsxz(DictUtil.getDictMc("tibetan", mzxx.getZsxz()));
+		model.addAttribute("mzxx",mzxx);
 		return "shswc/xxbsXqMzxxGm";
 	}
 	// 墓葬信息报送-公墓 - GET
 	@RequestMapping(value = "/user/xxbsBsMzxxGm", method = RequestMethod.GET)
 	public String xxbsBsMzxxGmGet(Model model,String id) {
-		MzywShswcSzxx mzy= mzywShswcSzxxService.queryById(id);
-		model.addAttribute("szxx",mzy);
+		MzywShswcMzxx mzxx = mzywShswcSzxxService.queryMzxxById(id);
+		model.addAttribute("mzxx",mzxx);
 		return "shswc/xxbsBsMzxxGm";
 	}
 	// 墓葬信息报送-公墓 - POST
@@ -363,13 +455,13 @@ public class ShswcController {
 	// 墓葬信息删除-公墓 - GET
 	@RequestMapping(value = "/user/xxbsScMzxxGm", method = RequestMethod.GET)
 	public String xxbsScMzxxGmGet(String id) {
-		mzywShswcSzxxService.deleteById(id);
+		mzywShswcSzxxService.deleteMzxxById(id);
 		return "shswc/xxbsCxMzxxGm";
 	}
 	// 墓葬信息暂存-公墓 - POST
 	@RequestMapping(value = "/user/xxbsZcMzxxGm", method = RequestMethod.POST)
 	public String xxbsZcMzxxGmGet(String id) {
-		mzywShswcSzxxService.deleteById(id);
+		
 		return "shswc/xxbsCxMzxxGm";
 	}
 	/* 墓葬信息-end */

@@ -96,17 +96,17 @@ public class MzywShswcSzxxDao {
 	/*骨灰江葬 end*/
 	 //获取骨灰江葬信息列表
 		public List<MzywShswcGhjz> queryGhjzList(Map<Object,Object> map){
-	    	String sql="select t1.*,t2.bygmc from t_mzyw_shswc_ghjz as t1,t_mzyw_shswc_szxx as t2"
-	    			+ "where t1.szsfzhm=t2.szsfzhm and t1.szxm like ? "
-	    			+ "and t1.zhxgsj between ? and ? "
-	    			+ "and t1.szsfzhm like ? "
-	    			+ "and t1.zcbs like ? ";
+	    	String sql="select * from t_mzyw_shswc_ghjz "
+	    			+ "where szxm like ? "
+	    			+ "and zhxgsj between ? and ? "
+	    			+ "and szsfzhm like ? "
+	    			+ "and zcbs like ? ";
 	    	if(!map.get("bygmc").equals("")) {
-	    		sql+="and t2.bygmc = ? ";
+	    		sql+="and bygmc = ? ";
 	    	}else {
-	    		sql+="and 1=1 or t2.bygmc =? ";
+	    		sql+="and 1=1 or bygmc =? ";
 	    	}
-	    	sql+=" order by t1.zhxgsj desc limit ?,? ";
+	    	sql+=" order by zhxgsj desc limit ?,? ";
 	    	SQLQuery query = getSession().createSQLQuery(sql).addEntity(MzywShswcGhjz.class);
 	    	query.setParameter(0, map.get("szxm"));
 	    	query.setParameter(1, map.get("startDate"));
@@ -122,15 +122,15 @@ public class MzywShswcSzxxDao {
 	    }
 		//获取骨灰江葬信息列表长度
 	    public int queryGhjzListCount(Map<Object,Object> map) {
-	    	String sql="select count(1) from t_mzyw_shswc_ghjz as t1,t_mzyw_shswc_szxx as t2"
-	    			+ "where t1.szsfzhm=t2.szsfzhm and t1.szxm like ? "
-	    			+ "and t1.zhxgsj between ? and ? "
-	    			+ "and t1.szsfzhm like ? "
-	    			+ "and t1.zcbs like ? ";
+	    	String sql="select count(1) from t_mzyw_shswc_ghjz "
+	    			+ "where szxm like ? "
+	    			+ "and zhxgsj between ? and ? "
+	    			+ "and szsfzhm like ? "
+	    			+ "and zcbs like ? ";
 	    	if(!map.get("bygmc").equals("")) {
-	    		sql+="and t2.bygmc = ? ";
+	    		sql+="and bygmc = ? ";
 	    	}else {
-	    		sql+="and 1=1 or t2.bygmc =? ";
+	    		sql+="and 1=1 or bygmc =? ";
 	    	}
 	    	SQLQuery query = getSession().createSQLQuery(sql);
 	    	query.setParameter(0, map.get("szxm"));
@@ -164,7 +164,7 @@ public class MzywShswcSzxxDao {
 	//更新骨灰江葬信息
 	public void updateGhjzById(String id, String zcbs, String szsfzhm, String szxm, String szhjd, String jbrsfzhm,
 			String jbrxm, String jbrlxdh) {
-		String hql="update MzywShswcSzxx set zcbs=?,szsfzhm=?,szxm=?,szhjd=?,jbrsfzhm=?,jbrxm=?,jbrlxdh=? where id=?";
+		String hql="update MzywShswcGhjz set zcbs=?,szsfzhm=?,szxm=?,szhjd=?,jbrsfzhm=?,jbrxm=?,jbrlxdh=? where id=?";
 		Query query = getSession().createQuery(hql);
 		query.setParameter(0, zcbs);
 		query.setParameter(1, szsfzhm);
@@ -180,17 +180,17 @@ public class MzywShswcSzxxDao {
 	/*遗体外运 start*/
 	//获取遗体外运列表
 	public List<MzywShswcYtwy> queryYtwyList(Map<Object,Object> map){
-    	String sql="select t1.*,t2.bygmc from t_mzyw_shswc_ytwy as t1 , t_mzyw_shswc_szxx as t2 "
-    			+ "where t1.szsfzhm = t2.szsfzhm szxm like ? "
+    	String sql="select * from t_mzyw_shswc_ytwy "
+    			+ " where szxm like ? "
     			+ "and zhxgsj between ? and ? "
     			+ "and szsfzhm like ? "
     			+ "and zcbs like ? ";
     	if(!map.get("bygmc").equals("")) {
-    		sql+="and t2.bygmc = ? ";
+    		sql+="and bygmc = ? ";
     	}else {
-    		sql+="and 1=1 or t2.bygmc =? ";
+    		sql+="and 1=1 or bygmc =? ";
     	}
-    	sql+=" limit ?,?";
+    	sql+=" order by zhxgsj desc  limit ?,?";
     	SQLQuery query = getSession().createSQLQuery(sql).addEntity(MzywShswcYtwy.class);
     	query.setParameter(0, map.get("szxm"));
     	query.setParameter(1, map.get("startDate"));
@@ -207,14 +207,15 @@ public class MzywShswcSzxxDao {
 	//获取遗体外运列表长度
     public int queryListYtwyCount(Map<Object,Object> map) {
     	String sql="select count(1) from t_mzyw_shswc_ytwy "
-    			+ "where szxm like ? "
+    			+ " where szxm like ? "
     			+ "and zhxgsj between ? and ? "
-    			+ "and szsfzhm like ? and zcbs like ? ";
-    	    	if(!map.get("bygmc").equals("")) {
-    	    		sql+="and bygmc =?";
-    	    	}else {
-    	    		sql+="and 1=1 or bygmc =?";
-    	    	}
+    			+ "and szsfzhm like ? "
+    			+ "and zcbs like ? ";
+    	if(!map.get("bygmc").equals("")) {
+    		sql+="and bygmc = ? ";
+    	}else {
+    		sql+="and 1=1 or bygmc =? ";
+    	}
     	SQLQuery query = getSession().createSQLQuery(sql);
     	query.setParameter(0, map.get("szxm"));
     	query.setParameter(1, map.get("startDate"));
@@ -249,15 +250,16 @@ public class MzywShswcSzxxDao {
 	/*墓葬信息 start*/
 	//获取墓葬信息列表
 	public List<MzywShswcMzxx> queryMzxxList(Map<Object,Object> map){
-    	String sql="select t1.*,t2.bygmc from t_mzyw_shswc_ytwy as t1 , t_mzyw_shswc_szxx as t2 "
-    			+ "where t1.szsfzhm = t2.szsfzhm szxm like ? "
+    	String sql="select * from t_mzyw_shswc_mzxx "
+    			+ "where szxm like ? "
     			+ "and zhxgsj between ? and ? "
     			+ "and szsfzhm like ? "
-    			+ "and zcbs like ? ";
-    	if(!map.get("bygmc").equals("")) {
-    		sql+="and t2.bygmc = ? ";
+    			+ "and zcbs like ? "
+    			+ "and zsxz like ? ";
+    	if(!map.get("mxqymc").equals("")) {
+    		sql+="and mxqymc = ? ";
     	}else {
-    		sql+="and 1=1 or t2.bygmc =? ";
+    		sql+="and 1=1 or mxqymc =? ";
     	}
     	sql+=" limit ?,?";
     	SQLQuery query = getSession().createSQLQuery(sql).addEntity(MzywShswcMzxx.class);
@@ -266,31 +268,35 @@ public class MzywShswcSzxxDao {
     	query.setParameter(2, map.get("endDate"));
     	query.setParameter(3, map.get("szsfzhm"));
     	query.setParameter(4, map.get("zcbs"));
-    	query.setParameter(5, map.get("bygmc"));
-    	query.setParameter(6, map.get("start"));
-    	query.setParameter(7, map.get("end"));
+    	query.setParameter(5, map.get("zsxz"));
+    	query.setParameter(6, map.get("mxqymc"));
+    	query.setParameter(7, map.get("start"));
+    	query.setParameter(8, map.get("end"));
 		@SuppressWarnings("unchecked")
 		List<MzywShswcMzxx> list = query.list();
     	return list;
     }
 	//获取墓葬信息列表长度
     public int queryListMzxxCount(Map<Object,Object> map) {
-    	String sql="select count(1) from t_mzyw_shswc_ytwy "
+    	String sql="select count(1) from t_mzyw_shswc_mzxx "
     			+ "where szxm like ? "
     			+ "and zhxgsj between ? and ? "
-    			+ "and szsfzhm like ? and zcbs like ? ";
-    	    	if(!map.get("bygmc").equals("")) {
-    	    		sql+="and bygmc =?";
-    	    	}else {
-    	    		sql+="and 1=1 or bygmc =?";
-    	    	}
+    			+ "and szsfzhm like ? "
+    			+ "and zcbs like ? "
+    			+ "and zsxz like ? ";
+    	if(!map.get("mxqymc").equals("")) {
+    		sql+="and mxqymc = ? ";
+    	}else {
+    		sql+="and 1=1 or mxqymc =? ";
+    	}
     	SQLQuery query = getSession().createSQLQuery(sql);
     	query.setParameter(0, map.get("szxm"));
     	query.setParameter(1, map.get("startDate"));
     	query.setParameter(2, map.get("endDate"));
     	query.setParameter(3, map.get("szsfzhm"));
     	query.setParameter(4, map.get("zcbs"));
-    	query.setParameter(5, map.get("bygmc"));
+    	query.setParameter(5, map.get("zsxz"));
+    	query.setParameter(6, map.get("bygmc"));
     	int count=((Number)query.uniqueResult()).intValue();  
     	return count;
     }

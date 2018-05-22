@@ -66,20 +66,20 @@ public interface MzywShswcSzxxService {
 
 	/* 遗体外运 end */
 	/* 墓葬信息 start */
-	// 获取遗体外运信息列表
+	// 获取墓葬信息信息列表
 	PageDto<MzywShswcMzxx> queryMzxxList(int pageIndex, int pageSize, String szxm, String startDate, String endDate,
-			String szsfzhm, String bygmc, String zcbs);
+			String szsfzhm, String mxqymc,String zcbs,String zsxz);
 
-	// 根据id获取遗体外运信息
+	// 根据id获取墓葬信息信息
 	MzywShswcMzxx queryMzxxById(String id);
 
-	// 根据id删除遗体外运信息
+	// 根据id删除墓葬信息信息
 	void deleteMzxxById(String id);
 
-	// 更新遗体外运对象信息
+	// 更新墓葬信息对象信息
 	void updateMzxx(MzywShswcMzxx mzy);
 
-	// 新增遗体外运对象信息
+	// 新增墓葬信息对象信息
 	void addMzxx(MzywShswcMzxx mzy);
 	/* 墓葬信息 end */
 }

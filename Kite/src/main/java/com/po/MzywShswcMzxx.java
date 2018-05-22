@@ -30,7 +30,7 @@ public class MzywShswcMzxx implements Serializable {
 	private String szhjd;
 	
 	@Column(columnDefinition = "VARCHAR(50) COMMENT '葬式选择'")
-	private String ssxx;
+	private String zsxz;
 
 	@Column(columnDefinition = "VARCHAR(255) COMMENT '合葬信息(身份证号码+姓名)JSON'")
 	private String hzxx;
@@ -38,8 +38,8 @@ public class MzywShswcMzxx implements Serializable {
 	@Column(columnDefinition = "VARCHAR(50) COMMENT '墓穴区域名称'")
 	private String mxqymc;
 	
-	@Column(columnDefinition = "VARCHAR(10) COMMENT '墓穴价格'")
-	private String szhhrq;
+	@Column(columnDefinition = "int COMMENT '墓穴价格'")
+	private Integer mxjg;
 	
 	@Column(columnDefinition = "VARCHAR(8) COMMENT '购墓日期'")
 	private String gmrq;
@@ -70,9 +70,19 @@ public class MzywShswcMzxx implements Serializable {
 
 	@Column(columnDefinition = "VARCHAR(14) COMMENT '最后修改时间'")
 	private String zhxgsj;
+	@Column(columnDefinition = "VARCHAR(14) COMMENT '安葬日期'")
+	private String azrq;
 
 	public MzywShswcMzxx() {
 
+	}
+
+	public String getAzrq() {
+		return azrq;
+	}
+
+	public void setAzrq(String azrq) {
+		this.azrq = azrq;
 	}
 
 	public String getId() {
@@ -107,12 +117,12 @@ public class MzywShswcMzxx implements Serializable {
 		this.szhjd = szhjd;
 	}
 
-	public String getSsxx() {
-		return ssxx;
+	public String getZsxz() {
+		return zsxz;
 	}
 
-	public void setSsxx(String ssxx) {
-		this.ssxx = ssxx;
+	public void setZsxz(String zsxz) {
+		this.zsxz = zsxz;
 	}
 
 	public String getHzxx() {
@@ -131,12 +141,12 @@ public class MzywShswcMzxx implements Serializable {
 		this.mxqymc = mxqymc;
 	}
 
-	public String getSzhhrq() {
-		return szhhrq;
+	public Integer getMxjg() {
+		return mxjg;
 	}
 
-	public void setSzhhrq(String szhhrq) {
-		this.szhhrq = szhhrq;
+	public void setMxjg(Integer mxjg) {
+		this.mxjg = mxjg;
 	}
 
 	public String getGmrq() {

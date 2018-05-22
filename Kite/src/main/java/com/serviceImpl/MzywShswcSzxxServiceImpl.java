@@ -188,9 +188,9 @@ public class MzywShswcSzxxServiceImpl implements MzywShswcSzxxService {
 		}
 	/*遗体外运 end*/
 	/*墓葬信息 start*/
-		// 获取遗体外运信息列表
+		// 获取墓葬信息列表
 		public PageDto<MzywShswcMzxx> queryMzxxList(int pageIndex, int pageSize, String szxm, String startDate, String endDate,
-				String szsfzhm, String bygmc, String zcbs){
+				String szsfzhm, String mxqymc,String zcbs,String zsxz){
 			if(startDate.length()==0) {
 				startDate="2001-01-01";
 			}
@@ -203,11 +203,12 @@ public class MzywShswcSzxxServiceImpl implements MzywShswcSzxxService {
 			map.put("start", (pageIndex - 1) * pageSize);
 			map.put("end", pageSize);
 			map.put("szxm", "%" + szxm + "%");
+			map.put("szsfzhm", "%" + szsfzhm + "%");
 			map.put("startDate", startDate);
 			map.put("endDate", endDate);
-			map.put("bygmc",bygmc);
+			map.put("mxqymc",mxqymc);
 			map.put("zcbs","%"+zcbs+"%");
-			map.put("szsfzhm", "%" + szsfzhm + "%");
+			map.put("zsxz","%"+zsxz+"%");
 			List<MzywShswcMzxx> list = mzywShswcSzxxDao.queryMzxxList(map);
 			PageDto<MzywShswcMzxx> dto=new PageDto<>();
 			dto.setList(list);
@@ -219,23 +220,23 @@ public class MzywShswcSzxxServiceImpl implements MzywShswcSzxxService {
 			return dto;
 		}
 
-		// 根据id获取遗体外运信息
+		// 根据id获取墓葬信息
 		public MzywShswcMzxx queryMzxxById(String id) {
 			MzywShswcMzxx mzywShswcMzxx = mzywShswcSzxxDao.queryMzxxById(id);
 			return mzywShswcMzxx;
 		}
 
-		// 根据id删除遗体外运信息
+		// 根据id删除墓葬信息
 		public void deleteMzxxById(String id) {
 			mzywShswcSzxxDao.deleteMzxxById(id);
 		}
 
-		// 更新遗体外运对象信息
+		// 更新墓葬信息对象信息
 		public void updateMzxx(MzywShswcMzxx mzy) {
 			mzywShswcSzxxDao.updateMzxx(mzy);
 		}
 
-		// 新增遗体外运对象信息
+		// 新增墓葬信息对象信息
 		public void addMzxx(MzywShswcMzxx mzy) {
 			mzywShswcSzxxDao.addMzxx(mzy);
 		}
