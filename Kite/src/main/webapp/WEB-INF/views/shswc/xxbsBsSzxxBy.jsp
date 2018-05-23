@@ -4,6 +4,8 @@
 <html style="background-color: #000">
 <head>
 <%@include file="../commont.jsp"%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 <style type="text/css">
 .nei span {
 	color: #fff;
@@ -172,10 +174,11 @@
 										<tr>
 										<td>证明材料</td>
 											<td colspan="5">
-												<p>
-													<input type="checkbox" value="逝者身份证" class="in_sub"> 逝者身份证
-													<input type="checkbox" value="逝者户口簿" class="in_sub"> 逝者户口簿
-													<input type="checkbox" value="死亡证明" class="in_sub"> 死亡证明
+												<p id="fjxx">
+												<div id="fj"></div>
+													<input type="checkbox" value="逝者身份证" class="in_sub"> <a>逝者身份证</a>
+													<input type="checkbox" value="逝者户口簿" class="in_sub"> <a>逝者户口簿</a>
+													<input type="checkbox" value="死亡证明" class="in_sub"> <a>死亡证明</a>
 												</p>
 											</td>
 										</tr>
@@ -199,6 +202,7 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="images/pageList/shswc/xxbsBsSzxxBy.js"></script>
+	<script type="text/javascript" src="images/pageList/shswc/fjxx.js"></script>
 	<script type="text/javascript">
 	$('#submit').click(function(){
 			$("form").attr("action","user/xxbsBsSzxxBy");

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "T_MZYW_TZGG ")
+@Table(name = "T_MZYW_TZGG")
 public class MzywTzgg implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -53,6 +53,16 @@ public class MzywTzgg implements Serializable {
 	@Column(columnDefinition = "VARCHAR(14) COMMENT '最后修改时间'")
 	private String zhxgsj;
 
+	
+	public String getYxbs() {
+		return yxbs;
+	}
+
+	public void setYxbs(String yxbs) {
+		this.yxbs = yxbs;
+	}
+
+	
 	public MzywTzgg() {
 
 	}

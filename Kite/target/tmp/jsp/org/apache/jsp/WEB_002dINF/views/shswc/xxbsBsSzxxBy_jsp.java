@@ -75,8 +75,11 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("<link rel=\"stylesheet\" href=\"images/dist/css/AdminLTE.css\">\r\n");
       out.write("<link rel=\"stylesheet\" href=\"images/dist/css/skins/_all-skins.css\">\r\n");
       out.write("<link rel=\"stylesheet\" href=\"images/vince/css/vince.css\">\r\n");
-      out.write("<link rel=\"stylesheet\" href=\"images/vince/biao/css/font-awesome.min.css\">");
+      out.write("<link rel=\"stylesheet\" href=\"images/vince/biao/css/font-awesome.min.css\">\r\n");
+      out.write("<script src=\"images/bootstrap/js/bootstrap.js\"></script>\r\n");
       out.write("\r\n");
+      out.write("<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css\">\r\n");
+      out.write("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js\"></script>\r\n");
       out.write("<style type=\"text/css\">\r\n");
       out.write(".nei span {\r\n");
       out.write("\tcolor: #fff;\r\n");
@@ -84,6 +87,10 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("}\r\n");
       out.write("#text {\r\n");
       out.write("\twidth: 150px;\r\n");
+      out.write("}\r\n");
+      out.write("#fj{\r\n");
+      out.write("width: 150px;\r\n");
+      out.write("height:200px;\r\n");
       out.write("}\r\n");
       out.write("</style>\r\n");
       out.write("</head>\r\n");
@@ -289,10 +296,11 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t\t\t<tr>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<td>证明材料</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<td colspan=\"5\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<p>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" value=\"逝者身份证\" class=\"in_sub\"> 逝者身份证\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" value=\"逝者户口簿\" class=\"in_sub\"> 逝者户口簿\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" value=\"死亡证明\" class=\"in_sub\"> 死亡证明\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<p id=\"fjxx\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"fj\"></div>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" value=\"逝者身份证\" class=\"in_sub\"> <a>逝者身份证</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" value=\"逝者户口簿\" class=\"in_sub\"> <a>逝者户口簿</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" value=\"死亡证明\" class=\"in_sub\"> <a>死亡证明</a>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t</tr>\r\n");
@@ -316,10 +324,14 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t</div>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"images/pageList/shswc/xxbsBsSzxxBy.js\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\" src=\"images/pageList/shswc/fjxx.js\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\">\r\n");
       out.write("\t$('#submit').click(function(){\r\n");
       out.write("\t\t\t$(\"form\").attr(\"action\",\"user/xxbsBsSzxxBy\");\r\n");
       out.write("\t});\r\n");
+      out.write("\t$('#fjxx > a').click(function(){\r\n");
+      out.write("\t\t$('#fj').hide();\r\n");
+      out.write("});\r\n");
       out.write("\t</script>\r\n");
       out.write("</body>");
     } catch (Throwable t) {

@@ -1,9 +1,12 @@
 package com.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +15,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.po.MzywFjxx;
 import com.po.MzywShswcGhjz;
 import com.po.MzywShswcMzxx;
 import com.po.MzywShswcSzxx;
 import com.po.MzywShswcYtwy;
 import com.po.User;
 import com.service.MzywShswcSzxxService;
+import com.service.TongGaoService;
 import com.utils.DictUtil;
 import com.utils.PageDto;
 
@@ -26,6 +32,9 @@ import com.utils.PageDto;
 public class ShswcController {
 	@Autowired
 	private MzywShswcSzxxService mzywShswcSzxxService;
+	@Autowired
+	private TongGaoService tongGaoService;
+	
 	private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	// 社会事务处-start
 	/* 逝者信息-start */
@@ -421,6 +430,7 @@ public class ShswcController {
 	@RequestMapping(value = "/user/xxbsXqMzxxSh", method = RequestMethod.GET)
 	public String xxbsXqMzxxShGet(Model model,String id) {
 		MzywShswcMzxx mzxx = mzywShswcSzxxService.queryMzxxById(id);
+		mzxx.setMxqymc(DictUtil.getDictMc("tibetan", mzxx.getMxqymc()));
 		model.addAttribute("mzxx",mzxx);
 		return "shswc/xxbsXqMzxxSh";
 	}
@@ -429,6 +439,22 @@ public class ShswcController {
 	public String xxbsCxMzxxGmGet() {
 		return "shswc/xxbsCxMzxxGm";
 	}
+	// 墓葬信息查询-公墓 - POST
+	@RequestMapping(value = "/user/xxbsCxMzxxGm", method = RequestMethod.POST)
+	@ResponseBody
+	public PageDto<MzywShswcMzxx> xxbsCxMzxxGmPOST(int pageIndex, int pageSize, String szxm, String startDate,
+			String endDate, String szsfzhm, String mxqymc,String zcbs,String zsxz) {
+		PageDto<MzywShswcMzxx> dto = mzywShswcSzxxService.queryMzxxList(pageIndex, pageSize, szxm, startDate, endDate,
+				szsfzhm, mxqymc,zcbs,zsxz);
+		List<MzywShswcMzxx> list = dto.getList();
+		for (MzywShswcMzxx mzy : list) {
+			String mc = DictUtil.getDictMc("cemetery", mzy.getZsxz());
+			mzy.setZsxz(mc);
+			String mc2 = DictUtil.getDictMc("submit", mzy.getZcbs());
+			mzy.setZcbs(mc2);
+		}
+		return dto;
+	}
 	// 墓葬信息详情-公墓 - GET
 	@RequestMapping(value = "/user/xxbsXqMzxxGm", method = RequestMethod.GET)
 	public String xxbsXqMzxxGmGet(Model model,String id) {
@@ -436,7 +462,6 @@ public class ShswcController {
 		if(mzxx.getMxqymc()!=null) {
 			mzxx.setMxqymc(DictUtil.getDictMc("cemetery", mzxx.getMxqymc()));
 		}
-		mzxx.setZsxz(DictUtil.getDictMc("tibetan", mzxx.getZsxz()));
 		model.addAttribute("mzxx",mzxx);
 		return "shswc/xxbsXqMzxxGm";
 	}
@@ -449,7 +474,13 @@ public class ShswcController {
 	}
 	// 墓葬信息报送-公墓 - POST
 	@RequestMapping(value = "/user/xxbsBsMzxxGm", method = RequestMethod.POST)
-	public String xxbsBsMzxxGmGet(String id) {
+	public String xxbsBsMzxxGmGet(MzywShswcMzxx mzxx,HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		mzxx.setZhxgyh(user.getName());
+		mzxx.setZhxgsj(sdf.format(new Date()));
+		mzxx.setZcbs("0");
+		mzxx.setYxbs("0");
+		mzywShswcSzxxService.updateMzxx(mzxx);
 		return "shswc/xxbsCxMzxxGm";
 	}
 	// 墓葬信息删除-公墓 - GET
@@ -460,12 +491,51 @@ public class ShswcController {
 	}
 	// 墓葬信息暂存-公墓 - POST
 	@RequestMapping(value = "/user/xxbsZcMzxxGm", method = RequestMethod.POST)
-	public String xxbsZcMzxxGmGet(String id) {
-		
+	public String xxbsZcMzxxGmGet(MzywShswcMzxx mzxx,HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		mzxx.setZhxgyh(user.getName());
+		mzxx.setZhxgsj(sdf.format(new Date()));
+		mzxx.setZcbs("1");
+		mzxx.setYxbs("0");
+		mzywShswcSzxxService.updateMzxx(mzxx);
 		return "shswc/xxbsCxMzxxGm";
 	}
 	/* 墓葬信息-end */
 	// 社会事务处-end
-
-	
+	//附件相关
+	/*附件上传*/
+		@RequestMapping(value="/shswc/upload",method=RequestMethod.GET)
+		public void upload(HttpServletRequest request,MultipartFile photo,String id) {
+			//获取文件名和服务器文件名
+			String fileName = photo.getOriginalFilename();
+			String fileNameServer = System.currentTimeMillis()+fileName.substring(fileName.lastIndexOf("."));
+			//保存到数据库 userName、password、fileName、fileNameServer
+			String cjsj = sdf.format(new Date());
+			MzywFjxx mzywFjxx = new MzywFjxx();
+			mzywFjxx.setYsbxxid(id);
+			mzywFjxx.setFjhzm(fileNameServer);//服务器文件名
+			mzywFjxx.setFjmc(fileName);//文件名
+			mzywFjxx.setCjsj(cjsj);
+			mzywFjxx.setFjdx((float) photo.getSize());
+			mzywFjxx.setZt("0");
+			tongGaoService.updateFJGX(mzywFjxx);
+			//文件保存到本地服务器
+			
+			//获取文件需要上传到的路径
+			String path = request.getSession().getServletContext().getRealPath("/upload");
+			//创建文件夹
+			File file = new File(path);
+			if(!file.exists()) {
+				file.mkdirs();
+			}
+			//创建文件
+			file = new File(path,fileNameServer);
+			try {
+				photo.transferTo(file);
+			}catch(IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 }

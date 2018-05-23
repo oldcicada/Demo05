@@ -54,41 +54,32 @@
 									    <tr>
 											<td>葬式选择</td>
 											<td colspan="5">
-											<p>
-											<input type="checkbox" value="  地上式墓穴  " class="in_sub"> 地上式墓穴
+											<p><input type="hidden" value="${mzxx.zsxz }" id="zsxz">
+											<input type="radio" name="zsxz"  value="  地上式墓穴  " class="in_sub" id="first"> 地上式墓穴
 						          					<select  class="biaoti_select">
 													  <option value="">单穴</option>
 													  <option value="">双穴</option>
 													   <option value="">多穴</option>
 													</select>
 	          				                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-	          				                    <input type="checkbox" value="  生态葬式  " class="in_sub"> 地上式墓穴
+	          				                    <input type="radio" name="zsxz" value="  生态葬式  " class="in_sub" id="second"> 生态墓穴
 						          					<select  class="biaoti_select">
 													  <option value="">森林葬</option>
 													  <option value="">花坛葬</option>
-													   <option value="">树葬</option>
+													  <option value="">树葬</option>
 													</select>
 	          				                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-	          				                    <input type="checkbox" value="  节地葬式  " class="in_sub"> 地上式墓穴
-												
+	          				                    <input type="radio" name="zsxz"  value="  节地葬式  " class="in_sub" id="third"> 节地墓穴
 						          					<select  class="biaoti_select">
 													  <option value="">骨灰格位葬</option>
 													  <option value="">草坪葬</option>
 													</select>
-	          				                   
 											  </p>
 											</td>
 										</tr>
 									<!-- 循环渲染合葬者信息 -->
-									<%--   <c:forEach var="hzxx" items="${mzxx.hzxx }">
-									  	<tr>
-									  		<td>身份证号码</td>
-											<td>${hzxx.szsfzhm }</td>
-											<td>姓名</td>
-											<td>${hzxx.szxm }</td>
-										</tr>
-									  </c:forEach> --%>
-										<tr>
+									<tr><input type="text" value="${mzxx.hzxx }"></tr>
+										<tr id="message">
 											<td>墓穴区域名称</td>
 											<td>${mzxx.mxqymc }</td>
 											<td>墓穴价格</td>
@@ -131,18 +122,17 @@
 											<td colspan="6">
 												<p>
 													<a href="user/xxbsCxMzxxSh"><input type="submit" value="  返回 " class="in_sub"></a>
-												
 												</p>
 											</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="images/pageList/shswc/xxbsXqMzxxSh.js"></script>
 </body>

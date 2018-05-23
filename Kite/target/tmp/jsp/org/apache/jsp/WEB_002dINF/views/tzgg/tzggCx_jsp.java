@@ -75,7 +75,8 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("<link rel=\"stylesheet\" href=\"images/dist/css/AdminLTE.css\">\r\n");
       out.write("<link rel=\"stylesheet\" href=\"images/dist/css/skins/_all-skins.css\">\r\n");
       out.write("<link rel=\"stylesheet\" href=\"images/vince/css/vince.css\">\r\n");
-      out.write("<link rel=\"stylesheet\" href=\"images/vince/biao/css/font-awesome.min.css\">");
+      out.write("<link rel=\"stylesheet\" href=\"images/vince/biao/css/font-awesome.min.css\">\r\n");
+      out.write("<script src=\"images/bootstrap/js/bootstrap.js\"></script>\r\n");
       out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<body class=\"skin-blue\"  style=\"height: 100% !important;\">\r\n");
@@ -86,7 +87,7 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t<div class=\"nei\">\r\n");
       out.write("\t\t\t\t\t\t\t<div class=\"ssjc_ru_title\">\r\n");
       out.write("\t\t\t\t\t\t\t\t<span class=\"left_ten\"> 查询条件 </span>\r\n");
-      out.write("\t\t\t\t\t\t\t\t<a href=\"user/ggFb\" target=\"frame\"><input type=\"submit\" value=\"公告发布\" ></a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t<a href=\"user/tzggxz\" target=\"frame\"><input type=\"submit\" value=\"公告发布\" ></a>\r\n");
       out.write("\t\t\t\t\t\t\t\t<a href=\"user/tzggCx\" target=\"frame\"><input type=\"submit\" value=\"公告查询\"></a>\r\n");
       out.write("\t\t\t\t\t\t\t\t<div class=\"clear\"></div>\r\n");
       out.write("\t\t\t\t\t\t\t</div>\r\n");
@@ -104,7 +105,6 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t\t<span>公告标题：<input type=\"text\" name=\"tzggbt\"></span>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<span>状态：\r\n");
       out.write("\t\t\t          \t\t\t\t\t<select  class=\"biaoti_select\" name=\"tzggzt\">\r\n");
-      out.write("\t\t\t          \t\t\t\t\t\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t  <option value=\"已发布\">已发布</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t   <option value=\"未发布\">未发布</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t \r\n");
