@@ -1,0 +1,10 @@
+$(document).ready(function(){ 
+	$("#submit").click(submit);
+});
+
+
+function submit(){
+	var id =$("#id").val();
+	$.post("user/xxbsBsBdxxQxSubmit",{"id":id});
+	location.href="user/azcXxCxBdQx";
+}

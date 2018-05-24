@@ -12,4 +12,3 @@
 <link rel="stylesheet" href="images/dist/css/skins/_all-skins.css">
 <link rel="stylesheet" href="images/vince/css/vince.css">
 <link rel="stylesheet" href="images/vince/biao/css/font-awesome.min.css">
-<script src="images/bootstrap/js/bootstrap.js"></script>

@@ -75,8 +75,7 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("<link rel=\"stylesheet\" href=\"images/dist/css/AdminLTE.css\">\r\n");
       out.write("<link rel=\"stylesheet\" href=\"images/dist/css/skins/_all-skins.css\">\r\n");
       out.write("<link rel=\"stylesheet\" href=\"images/vince/css/vince.css\">\r\n");
-      out.write("<link rel=\"stylesheet\" href=\"images/vince/biao/css/font-awesome.min.css\">\r\n");
-      out.write("<script src=\"images/bootstrap/js/bootstrap.js\"></script>\r\n");
+      out.write("<link rel=\"stylesheet\" href=\"images/vince/biao/css/font-awesome.min.css\">");
       out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<body class=\"skin-blue\">\r\n");

@@ -105,7 +105,7 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t\t\t</select>\r\n");
       out.write("          \t\t\t\t            </span>\r\n");
       out.write("          \t\t\t\t            <span>公墓名称：\r\n");
-      out.write("\t\t\t          \t\t\t\t\t<select  class=\"biaoti_select\" name=\"mxqymc\" id=\"mxqymc\"\r\n");
+      out.write("\t\t\t          \t\t\t\t\t<select  class=\"biaoti_select\" name=\"mxqymc\" id=\"mxqymc\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t</select>\r\n");
       out.write("          \t\t\t\t            </span>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<span>身份证号码：<input type=\"text\" name=\"szsfzhm\" pattern=\"^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$\"></span> \r\n");

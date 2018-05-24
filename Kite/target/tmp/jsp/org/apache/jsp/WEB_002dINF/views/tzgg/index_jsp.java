@@ -197,7 +197,7 @@ String baseUrl = request.getScheme()+"://"+request.getServerName()+":"+request.g
       out.write("\t\t\t\t\t\t\t\t\t评先表彰加分报送 (督查办)</a></li>\r\n");
       out.write("\t\t\t\t\t\t    <li><a href=\"user/xxbsCxXcbdDc\" target=\"frame\"><i class=\"fa fa-bookmark\"></i>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t宣传报道加分报送 (督查办)</a></li>\r\n");
-      out.write("\t\t\t\t\t\t\t<li><a href=\"user/xxbsCxBn\" target=\"frame\"><i class=\"fa fa-bookmark\"></i>\r\n");
+      out.write("\t\t\t\t\t\t\t<li><a href=\"user/bnbXxCxJg\" target=\"frame\"><i class=\"fa fa-bookmark\"></i>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t信息报送 (不能办)</a></li>\r\n");
       out.write("\t\t\t\t\t\t    <li><a href=\"user/xxbsCxYljgFc\" target=\"frame\"><i class=\"fa fa-bookmark\"></i>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t养老机构信息报送 (福慈处)</a></li>\r\n");
